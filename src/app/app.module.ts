@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { Error404Component } from './error404/error404.component';
 import { AccueilComponent } from './accueil/accueil.component';
+import { AnimeListComponent } from './anime-list/anime-list.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { AccueilComponent } from './accueil/accueil.component';
     HeaderComponent,
     FooterComponent,
     Error404Component,
-    AccueilComponent
+    AccueilComponent,
+    AnimeListComponent
   ],
   imports: [
     BrowserModule,
