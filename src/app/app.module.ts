@@ -11,6 +11,8 @@ import { AnimeListComponent } from './anime-list/anime-list.component';
 import { AnimeComponent } from './anime/anime.component';
 import { ListComponent } from './list/list.component';
 import { ReviewComponent } from './review/review.component';
+import { AnimeCardComponent } from './anime-card/anime-card.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -22,11 +24,13 @@ import { ReviewComponent } from './review/review.component';
     AnimeListComponent,
     AnimeComponent,
     ListComponent,
-    ReviewComponent
+    ReviewComponent,
+    AnimeCardComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
