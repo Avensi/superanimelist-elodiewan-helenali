@@ -1,7 +1,7 @@
 <div class="container md mx-auto mt-7 mb-5">
-  <div class="bg-blue-400 grid grid-cols-3 gap-3">
-    <p class="flex items-center justify-center">dzp</p>
-    <p class="flex items-center justify-center">dzp</p>
-    <p class="flex items-center justify-center">dzp</p>
+  <div class="grid grid-cols-3 gap-3">
+    <div *ngFor="let anime of animeList" class="p-5">
+      <app-anime-card [anime]="anime"></app-anime-card>
+    </div>
   </div>
 </div>
