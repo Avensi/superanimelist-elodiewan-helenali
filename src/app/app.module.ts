@@ -8,6 +8,9 @@ import { FooterComponent } from './footer/footer.component';
 import { Error404Component } from './error404/error404.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { AnimeListComponent } from './anime-list/anime-list.component';
+import { AnimeComponent } from './anime/anime.component';
+import { ListComponent } from './list/list.component';
+import { ReviewComponent } from './review/review.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { AnimeListComponent } from './anime-list/anime-list.component';
     FooterComponent,
     Error404Component,
     AccueilComponent,
-    AnimeListComponent
+    AnimeListComponent,
+    AnimeComponent,
+    ListComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule,
