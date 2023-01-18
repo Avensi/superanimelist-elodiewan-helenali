@@ -8,19 +8,20 @@ import {map, Observable} from "rxjs";
 })
 export class AnimeListService {
 
-  private configURL: string = 'https://kitsu.io/api/edge/anime?page[limit]=5&page[offset]=0';
+  private configURL: string = 'https://kitsu.io/api/edge/anime?page[limit]=8&page[offset]=0&sort=-userCount';
 
   public constructor(private http: HttpClient) {
   }
 
   public getAnimes(): Observable<Array<Anime>> {
     return this.http.get<any>(this.configURL).pipe(map(response => {
-        let animeList: Array<Anime> = new Array<Anime>();
-        for (let item of response.data) {
-          let anime: Anime = {
+        const animeList: Array<Anime> = new Array<Anime>();
+        for (const item of response.data) {
+          const anime: Anime = {
             title: item.attributes.titles.en,
             romaji: item.attributes.titles.en_jp,
-            description: item.attributes.synopsis
+            description: item.attributes.synopsis,
+            posterImageURL: item.attributes.posterImage.large
           }
           animeList.push(anime);
         }
