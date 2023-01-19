@@ -5,9 +5,11 @@ import {AccueilComponent} from "./accueil/accueil.component";
 import {AnimeListComponent} from "./anime-list/anime-list.component";
 import {ReviewComponent} from "./review/review.component";
 import {ListComponent} from "./list/list.component";
+import {AnimeComponent} from "./anime/anime.component";
 
 const routes: Routes = [
   {path: 'animeList', component: AnimeListComponent},
+  {path: 'anime/:id', component: AnimeComponent},
   {path: 'reviews', component: ReviewComponent},
   {path: 'list', component: ListComponent},
   {path: '', component: AccueilComponent},

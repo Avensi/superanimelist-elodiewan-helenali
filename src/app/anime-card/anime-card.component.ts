@@ -8,5 +8,5 @@ import {Anime} from "../model/anime";
 })
 export class AnimeCardComponent {
   @Input()
-  public anime!:Anime;
+  public anime:Anime = {} as Anime;
 }

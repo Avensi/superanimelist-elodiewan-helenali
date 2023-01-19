@@ -8,16 +8,15 @@ import {lastValueFrom} from "rxjs";
   templateUrl: './anime-list.component.html',
   styleUrls: ['./anime-list.component.scss']
 })
-export class AnimeListComponent implements OnInit{
+export class AnimeListComponent implements OnInit {
 
-  public animeList!: Array<Anime>;
+  public animeList: Array<Anime> = new Array<Anime>();
 
   public constructor(private animeListService: AnimeListService) {
   }
 
-  async ngOnInit() {
-   this.animeList = await lastValueFrom(this.animeListService.getAnimes());
-    console.log(this.animeList);
+  public async ngOnInit(): Promise<void> {
+    this.animeList = await lastValueFrom(this.animeListService.getAnimes());
   }
 
 }
