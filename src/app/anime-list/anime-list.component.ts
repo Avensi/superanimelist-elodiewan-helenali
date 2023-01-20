@@ -16,7 +16,10 @@ export class AnimeListComponent implements OnInit {
   }
 
   public async ngOnInit(): Promise<void> {
-    this.animeList = await lastValueFrom(this.animeListService.getAnimes());
+    if(sessionStorage.getItem('animeList') === null) {
+      sessionStorage.setItem('animeList', JSON.stringify(await lastValueFrom(this.animeListService.getAnime())));
+    }
+    this.animeList = JSON.parse(sessionStorage.getItem('animeList') || '{}');
   }
 
 }

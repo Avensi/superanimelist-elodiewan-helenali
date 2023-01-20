@@ -22,6 +22,7 @@ export class AnimeComponent implements OnInit{
       this.animeId = Number(params.get('id'));
     })
     this.anime = await lastValueFrom(this.animeListService.getAnimeById(this.animeId));
+    console.log(this.anime)
   }
 
 }
