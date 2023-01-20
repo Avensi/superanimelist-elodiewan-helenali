@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {AnimeListService} from "../service/anime-list.service";
-import {Anime} from "../model/anime";
 import {lastValueFrom} from "rxjs";
+import {AnimeDetails} from "../model/anime-details";
 
 @Component({
   selector: 'app-anime',
@@ -12,7 +12,7 @@ import {lastValueFrom} from "rxjs";
 export class AnimeComponent implements OnInit{
 
   private animeId: number = 0;
-  public anime:Anime = {} as Anime;
+  public anime:AnimeDetails = {} as AnimeDetails;
 
   public constructor(private activatedRoute: ActivatedRoute, private animeListService: AnimeListService) {
   }

@@ -1,1 +1,16 @@
-<p>{{anime.title}}</p>
+<div class="grid grid-cols-5 grid-flow-row gap-4 mb-5">
+  <img class="brightness-50 col-span-5" src="{{anime.coverImage}}" alt="{{anime.title}}">
+  <img class="poster absolute" src="{{anime.posterImageURL}}" alt="{{anime.title}}">
+  <div class="col-span-1 left-col">
+    <p>Romaji : {{anime.titleEnJp}}</p>
+    <p>English : {{anime.titleEn}}</p>
+    <p>Japanese : {{anime.titleJp}}</p>
+  </div>
+  <div class="col-span-4">
+    <p class="font-bold tracking-tight text-gray-900 text-4xl">{{anime.title}}</p>
+    <div class="text-justify w-auto mr-5 border-2 p-2 mt-5 rounded-t-md">
+      <p class="mb-2 text-xl">Synopsis :</p>
+      <span class="block p-2">{{anime.description}}</span>
+    </div>
+  </div>
+</div>
