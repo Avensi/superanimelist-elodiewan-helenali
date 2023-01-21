@@ -47,15 +47,17 @@ export class AnimeListService {
           titleEn: response.data[0].attributes.titles.en,
           titleEnJp: response.data[0].attributes.titles.en_jp,
           titleJp: response.data[0].attributes.titles.ja_jp,
-          coverImage: response.data[0].attributes.coverImage.small,
+          coverImage: response.data[0].attributes.coverImage? response.data[0].attributes.coverImage.small : 'https://kitsu.io/images/default_cover-22e5f56b17aeced6dc7f69c8d422a1ab.png',
           subtype: response.data[0].attributes.subtype,
           status: response.data[0].attributes.status,
-          startDate: response.data[0].attributes.startDate,
-          endDate: response.data[0].attributes.endDate,
+          startDate: new Date(response.data[0].attributes.startDate),
+          endDate: new Date(response.data[0].attributes.endDate),
           averageRating: response.data[0].attributes.averageRating,
           userCount: response.data[0].attributes.userCount,
           episodeCount: response.data[0].attributes.episodeCount,
           episodeLength: response.data[0].attributes.episodeLength,
+          popularityRank: response.data[0].attributes.popularityRank,
+          ratingRank: response.data[0].attributes.ratingRank
         }
         return anime;
       }),

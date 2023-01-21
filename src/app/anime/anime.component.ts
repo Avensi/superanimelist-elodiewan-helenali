@@ -11,8 +11,11 @@ import {AnimeDetails} from "../model/anime-details";
 })
 export class AnimeComponent implements OnInit{
 
-  private animeId: number = 0;
   public anime:AnimeDetails = {} as AnimeDetails;
+  public season: String = "";
+
+  private animeId: number = 0;
+  private seasonList: String[] = ["Winter", "Spring", "Summer", "Fall"];
 
   public constructor(private activatedRoute: ActivatedRoute, private animeListService: AnimeListService) {
   }
@@ -23,6 +26,7 @@ export class AnimeComponent implements OnInit{
     })
     this.anime = await lastValueFrom(this.animeListService.getAnimeById(this.animeId));
     console.log(this.anime)
+    this.season = this.seasonList[Math.round(this.anime.startDate.getMonth()/4)]
   }
 
 }

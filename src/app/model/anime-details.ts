@@ -13,4 +13,6 @@ export interface AnimeDetails extends Anime{
   userCount: number;
   episodeCount: number;
   episodeLength: number;
+  popularityRank: number;
+  ratingRank: number;
 }
