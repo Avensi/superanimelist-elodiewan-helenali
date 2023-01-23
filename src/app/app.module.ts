@@ -8,6 +8,10 @@ import { FooterComponent } from './footer/footer.component';
 import { Error404Component } from './error404/error404.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { AnimeListComponent } from './anime-list/anime-list.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {SigningComponent} from "./signin/signing.component";
+import {HttpClientModule} from "@angular/common/http";
+
 
 @NgModule({
   declarations: [
@@ -16,11 +20,14 @@ import { AnimeListComponent } from './anime-list/anime-list.component';
     FooterComponent,
     Error404Component,
     AccueilComponent,
-    AnimeListComponent
+    AnimeListComponent,
+    SigningComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
