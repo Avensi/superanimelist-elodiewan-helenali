@@ -13,6 +13,7 @@ import { ListComponent } from './list/list.component';
 import { ReviewComponent } from './review/review.component';
 import { AnimeCardComponent } from './anime-card/anime-card.component';
 import {HttpClientModule} from "@angular/common/http";
+import { AnimeReviewComponent } from './anime-review/anime-review.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {HttpClientModule} from "@angular/common/http";
     AnimeComponent,
     ListComponent,
     ReviewComponent,
-    AnimeCardComponent
+    AnimeCardComponent,
+    AnimeReviewComponent
   ],
   imports: [
     BrowserModule,
