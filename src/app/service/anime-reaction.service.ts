@@ -14,7 +14,7 @@ export class AnimeReactionService {
   }
 
   public getAnimeReactionById(animeId: number): Observable<Promise<Array<AnimeReaction>>> {
-    return this.http.get<any>(this.configURL + '?/filter[animeId]=' + animeId+ '&include=user').pipe(map(async (response: any) => {
+    return this.http.get<any>(this.configURL + '?filter[animeId]=' + animeId+ '&include=user').pipe(map(async (response: any) => {
       const animeReactionList: Array<AnimeReaction> = new Array<AnimeReaction>();
       for (const item of response.data) {
         const animeReaction: AnimeReaction = {

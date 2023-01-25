@@ -12,7 +12,7 @@ export class SignInService {
 
   public constructor(private http: HttpClient) {
   }
-  public formValue!:UserClass;
+  public userData!:UserClass;
 
   public signIn() : void {
     const httpOptions = {
@@ -21,14 +21,13 @@ export class SignInService {
       })
     };
 
-    this.http.post<any>(this.configURL,JSON.stringify(this.formValue), httpOptions).subscribe(event => {
-      this.formValue.token = event.access_token;
-      console.log(this.formValue)
+      this.http.post<any>(this.configURL,JSON.stringify(this.userData), httpOptions).subscribe(event => {
+      this.userData.token = event.access_token;
+      this.userData.isSignedIn = true;
+      console.log(this.userData)
     })
 
   }
-
-
 
 
 }

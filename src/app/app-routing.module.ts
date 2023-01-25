@@ -22,8 +22,7 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'top'})],
   declarations: [
-    AnimeCardComponent
   ],
-  exports: [RouterModule, AnimeCardComponent]
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

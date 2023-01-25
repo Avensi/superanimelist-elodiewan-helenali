@@ -4,6 +4,7 @@ export class UserClass {
     public password : string,
     public grant_type : string,
     public token : string,
+    public isSignedIn : boolean,
 
   ){}
 

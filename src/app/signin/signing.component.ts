@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {SignInService} from "../service/sign-in.service";
 import {UserClass} from "../model/user";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-signin',
@@ -11,9 +12,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 })
 export class SigningComponent {
 
-  private configURL : string = "https://kitsu.io/api/oauth/token";
-
-  public constructor(private signInService : SignInService, private http : HttpClient) {}
+  public constructor(private signInService : SignInService, private http : HttpClient, private router : Router) {}
 
 
   public signInForm: FormGroup = new FormGroup({
@@ -23,14 +22,15 @@ export class SigningComponent {
 
   public onSubmit(): void {
     if (this.signInForm.valid) {
-      alert("Le formulaire est valide");
-      this.signInService.formValue = new UserClass(
+      this.signInService.userData = new UserClass(
         this.signInForm.value['username'],
         this.signInForm.value['password'],
         "password",
         "",
+        false,
       )
       this.signInService.signIn();
+      this.router.navigate(["/animeList"])
     }
   }
 
