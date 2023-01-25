@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AnimeListService} from "../../service/anime-list.service";
 import {Anime} from "../../model/anime";
 import {lastValueFrom} from "rxjs";
@@ -15,7 +15,7 @@ export class AnimeListComponent implements OnInit {
   public pageSize: number = 8;
   public pageIndex: number = 0;
   public animeList: Array<Anime> = new Array<Anime>();
-
+  @ViewChild('top', { read: ElementRef }) tableInput!: ElementRef;
   public constructor(private animeListService: AnimeListService) {
   }
 
@@ -32,6 +32,7 @@ export class AnimeListComponent implements OnInit {
     this.pageSize = e.pageSize;
     this.pageIndex = e.pageIndex;
     this.animeList=await lastValueFrom(this.animeListService.getAnime(this.pageIndex));
+    this.tableInput.nativeElement.scrollIntoView({ behavior: 'smooth', block: "end" })
   }
 
 }
