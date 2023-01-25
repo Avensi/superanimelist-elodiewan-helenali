@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {AnimeReaction} from "../model/animeReaction";
+import {AnimeReaction} from "../../model/anime-reaction";
 
 @Component({
   selector: 'app-anime-review',

@@ -29,7 +29,7 @@
     <div class="col-span-4 w-auto ml-1 mr-5 ">
       <p class="font-bold tracking-tight text-gray-900 text-4xl mb-2">{{anime.title}}</p>
       <div class="grid grid-cols-12 grid-flow-col py-2 border-2 shadow-md bg-gray-100 ">
-        <div class="col-span-1 items-center place-items-center grid grid-flow-row border-r-2 border-r-gray-300">
+        <div class="col-span-1 mb-5 items-center place-items-center grid grid-flow-row border-r-2 border-r-gray-300">
           <p class="bg-blue-900 text-white px-2 text-center text-lg">Score :</p>
           <p class="font-bold text-xl">{{anime.averageRating}}</p>
         </div>
@@ -43,18 +43,22 @@
           <p>Status : {{anime.status}}</p>
         </div>
       </div>
-      <div class="text-justify border-2 p-2 mt-5 rounded-t-md">
-        <p class="mb-2 text-xl">Synopsis :</p>
-        <span class="block p-2">{{anime.description}}</span>
-      </div>
-      <div>
-        <p>Reactions : </p>
-        <div class="grid grid-cols-4 gap-5">
-          <div class="col-span-1" *ngFor="let animeReaction of animeReactionList">
-            <app-anime-review [animeReaction]="animeReaction"></app-anime-review>
+      <mat-tab-group>
+        <mat-tab label="Synopsis">
+          <div class="text-justify border-2 p-2 mt-5 rounded-t-md">
+            <p class="mb-2 text-xl">Synopsis :</p>
+            <span class="block p-2">{{anime.description}}</span>
           </div>
-        </div>
-      </div>
+        </mat-tab>
+        <mat-tab label="Reactions">
+          <div class="grid grid-cols-4 gap-5">
+            <div class="col-span-1" *ngFor="let animeReaction of animeReactionList">
+              <app-anime-review [animeReaction]="animeReaction"></app-anime-review>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Third"> Content 3</mat-tab>
+      </mat-tab-group>
     </div>
   </div>
 </ng-template>

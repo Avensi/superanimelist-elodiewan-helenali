@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {AnimeListService} from "../service/anime-list.service";
-import {Anime} from "../model/anime";
+import {AnimeListService} from "../../service/anime-list.service";
+import {Anime} from "../../model/anime";
 import {lastValueFrom} from "rxjs";
 
 @Component({
