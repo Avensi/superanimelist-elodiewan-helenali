@@ -14,6 +14,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { AnimeComponent } from './anime/anime.component';
 import { ListComponent } from './list/list.component';
 import { ReviewComponent } from './review/review.component';
+import {AnimeReviewComponent} from "./anime-review/anime-review.component";
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ReviewComponent } from './review/review.component';
     SigningComponent,
     AnimeComponent,
     ListComponent,
-    ReviewComponent
+    ReviewComponent,
+    AnimeReviewComponent
   ],
   imports: [
     BrowserModule,

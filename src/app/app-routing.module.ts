@@ -7,6 +7,7 @@ import { SigningComponent } from './signin/signing.component';
 import {ReviewComponent} from "./review/review.component";
 import {ListComponent} from "./list/list.component";
 import {AnimeComponent} from "./anime/anime.component";
+import {AnimeCardComponent} from "./anime-card/anime-card.component";
 
 const routes: Routes = [
   {path: 'animeList', component: AnimeListComponent},
@@ -20,6 +21,9 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'top'})],
-  exports: [RouterModule]
+  declarations: [
+    AnimeCardComponent
+  ],
+  exports: [RouterModule, AnimeCardComponent]
 })
 export class AppRoutingModule { }

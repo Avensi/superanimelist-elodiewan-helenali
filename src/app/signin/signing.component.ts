@@ -27,18 +27,10 @@ export class SigningComponent {
       this.signInService.formValue = new UserClass(
         this.signInForm.value['username'],
         this.signInForm.value['password'],
-        "password"
+        "password",
+        "",
       )
-
-      const httpOptions = {
-        headers: new HttpHeaders({
-          'Content-Type':  'application/json',
-        })
-      };
-      this.http.post(this.configURL,JSON.stringify(this.signInService.formValue), httpOptions).subscribe(event => {
-        console.log(JSON.stringify(event))
-      })
-      ;
+      this.signInService.signIn();
     }
   }
 
