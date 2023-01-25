@@ -51,12 +51,7 @@
           </div>
         </mat-tab>
         <mat-tab label="Reactions">
-          <div class="grid grid-cols-4 gap-5">
-            <div class="col-span-1" *ngFor="let animeReaction of animeReactionList">
-              <app-anime-review [animeReaction]="animeReaction"></app-anime-review>
-
-            </div>
-          </div>
+          <app-review [animeReactionList]="animeReactionList"></app-review>
         </mat-tab>
         <mat-tab label="Third"> Content 3</mat-tab>
       </mat-tab-group>

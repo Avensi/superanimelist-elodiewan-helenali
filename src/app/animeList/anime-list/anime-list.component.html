@@ -1,3 +1,4 @@
+<div class="h-1 w-1" #top></div>
 <div class="max-w-screen-xl mx-auto mb-5 mt-5">
   <div class="grid grid-cols-4 gap-5">
     <div *ngFor="let anime of animeList"
@@ -6,7 +7,6 @@
     </div>
   </div>
   <mat-paginator
-    class="demo-paginator"
     (page)="handlePageEvent($event)"
     [length]="length"
     [pageSize]="pageSize"
