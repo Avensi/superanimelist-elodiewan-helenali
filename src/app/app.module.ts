@@ -11,6 +11,9 @@ import { AnimeListComponent } from './anime-list/anime-list.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {SigningComponent} from "./signin/signing.component";
 import {HttpClientModule} from "@angular/common/http";
+import { AnimeComponent } from './anime/anime.component';
+import { ListComponent } from './list/list.component';
+import { ReviewComponent } from './review/review.component';
 
 
 @NgModule({
@@ -22,6 +25,9 @@ import {HttpClientModule} from "@angular/common/http";
     AccueilComponent,
     AnimeListComponent,
     SigningComponent,
+    AnimeComponent,
+    ListComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule,
