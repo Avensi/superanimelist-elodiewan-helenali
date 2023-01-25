@@ -1,51 +1,60 @@
-<div class="grid grid-cols-5 grid-flow-row gap-4 mb-5">
-  <img class="brightness-50 col-span-5 cover" src="{{anime.coverImage}}" alt="{{anime.title}}">
-  <a routerLink="/animeList"
-     class="absolute ml-5 mt-5 rotate-180 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-    <svg aria-hidden="true" class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-      <path fill-rule="evenodd"
-            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-            clip-rule="evenodd"></path>
-    </svg>
-    <span class="sr-only">Icon description</span>
-  </a>
-  <img class="poster absolute" src="{{anime.posterImageURL}}" alt="{{anime.title}}">
-  <div class="col-span-1 left-col">
-    <p *ngIf="anime.titleEnJp">Romaji : {{anime.titleEnJp}}</p>
-    <p *ngIf="anime.titleEn">English : {{anime.titleEn}}</p>
-    <p *ngIf="anime.titleJp">Japanese : {{anime.titleJp}}</p>
-    <p class="mt-3">Start Date : {{anime.startDate | date:'dd/MM/yyyy'}}</p>
-    <p>End Date : {{anime.endDate | date:'dd/MM/yyyy'}}</p>
-    <p>Season : {{season}} {{anime.startDate.getFullYear()}}</p>
+<div *ngIf="spinner.isLoading | async; else showContent" class="flex justify-center">
+  <div class="h-20 w-20 mt-56">
+    <app-spinner></app-spinner>
   </div>
-  <div class="col-span-4 w-auto ml-1 mr-5 ">
-    <p class="font-bold tracking-tight text-gray-900 text-4xl mb-2">{{anime.title}}</p>
-    <div class="grid grid-cols-12 grid-flow-col py-2 border-2 shadow-md bg-gray-100 ">
-      <div class="col-span-1 items-center place-items-center grid grid-flow-row border-r-2 border-r-gray-300">
-        <p class="bg-blue-900 text-white px-2 text-center text-lg">Score :</p>
-        <p class="font-bold text-xl">{{anime.averageRating}}</p>
-      </div>
-      <div class="pl-2 col-span-2 text-xl border-r-2 border-r-gray-300">
-        <p>Ranked : <strong>{{anime.ratingRank}}</strong></p>
-        <p>Popularity : <strong>{{anime.popularityRank}}</strong></p>
-        <p>Members : <strong>{{anime.userCount}}</strong></p>
-      </div>
-      <div class="pl-2 col-span-2">
-        <p>Type : {{anime.subtype}}</p>
-        <p>Status : {{anime.status}}</p>
-      </div>
+</div>
+
+<ng-template #showContent>
+  <div class="grid grid-cols-5 grid-flow-row gap-4 mb-5">
+    <img class="brightness-50 col-span-5 cover" src="{{anime.coverImage}}" alt="{{anime.title}}">
+    <a routerLink="/animeList"
+       class="absolute ml-5 mt-5 rotate-180 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2">
+      <svg aria-hidden="true" class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20"
+           xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd"
+              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+              clip-rule="evenodd"></path>
+      </svg>
+      <span class="sr-only">Icon description</span>
+    </a>
+    <img class="poster absolute" src="{{anime.posterImageURL}}" alt="{{anime.title}}">
+    <div class="col-span-1 left-col">
+      <p *ngIf="anime.titleEnJp">Romaji : {{anime.titleEnJp}}</p>
+      <p *ngIf="anime.titleEn">English : {{anime.titleEn}}</p>
+      <p *ngIf="anime.titleJp">Japanese : {{anime.titleJp}}</p>
+      <p class="mt-3">Start Date : {{anime.startDate | date:'dd/MM/yyyy'}}</p>
+      <p>End Date : {{anime.endDate | date:'dd/MM/yyyy'}}</p>
+      <p>Season : {{season}} {{anime.startDate.getFullYear()}}</p>
     </div>
-    <div class="text-justify border-2 p-2 mt-5 rounded-t-md">
-      <p class="mb-2 text-xl">Synopsis :</p>
-      <span class="block p-2">{{anime.description}}</span>
-    </div>
-    <div>
-      <p>Reactions : </p>
-      <div class="grid grid-cols-4 gap-5">
-        <div class="col-span-1" *ngFor="let animeReaction of animeReactionList">
-          <app-anime-review [animeReaction]="animeReaction"></app-anime-review>
+    <div class="col-span-4 w-auto ml-1 mr-5 ">
+      <p class="font-bold tracking-tight text-gray-900 text-4xl mb-2">{{anime.title}}</p>
+      <div class="grid grid-cols-12 grid-flow-col py-2 border-2 shadow-md bg-gray-100 ">
+        <div class="col-span-1 items-center place-items-center grid grid-flow-row border-r-2 border-r-gray-300">
+          <p class="bg-blue-900 text-white px-2 text-center text-lg">Score :</p>
+          <p class="font-bold text-xl">{{anime.averageRating}}</p>
+        </div>
+        <div class="pl-2 col-span-2 text-xl border-r-2 border-r-gray-300">
+          <p>Ranked : <strong>{{anime.ratingRank}}</strong></p>
+          <p>Popularity : <strong>{{anime.popularityRank}}</strong></p>
+          <p>Members : <strong>{{anime.userCount}}</strong></p>
+        </div>
+        <div class="pl-2 col-span-2">
+          <p>Type : {{anime.subtype}}</p>
+          <p>Status : {{anime.status}}</p>
+        </div>
+      </div>
+      <div class="text-justify border-2 p-2 mt-5 rounded-t-md">
+        <p class="mb-2 text-xl">Synopsis :</p>
+        <span class="block p-2">{{anime.description}}</span>
+      </div>
+      <div>
+        <p>Reactions : </p>
+        <div class="grid grid-cols-4 gap-5">
+          <div class="col-span-1" *ngFor="let animeReaction of animeReactionList">
+            <app-anime-review [animeReaction]="animeReaction"></app-anime-review>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</ng-template>

@@ -14,8 +14,11 @@ import {HttpClientModule} from "@angular/common/http";
 import { AnimeComponent } from './anime/anime.component';
 import { ListComponent } from './list/list.component';
 import { ReviewComponent } from './review/review.component';
-import {AnimeReviewComponent} from "./anime-review/anime-review.component";
-
+import { AnimeCardComponent } from './anime-card/anime-card.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import { AnimeReviewComponent } from './anime-review/anime-review.component';
+import {InterceptorService} from "./service/interceptor.service";
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,9 @@ import {AnimeReviewComponent} from "./anime-review/anime-review.component";
     AnimeComponent,
     ListComponent,
     ReviewComponent,
-    AnimeReviewComponent
+    AnimeCardComponent,
+    AnimeReviewComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +42,7 @@ import {AnimeReviewComponent} from "./anime-review/anime-review.component";
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS, useClass:InterceptorService, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
