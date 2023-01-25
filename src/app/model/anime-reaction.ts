@@ -3,5 +3,4 @@ export interface AnimeReaction {
   reaction:string;
   upVotesCount:number;
   createdAt: Date;
-  user:string;
 }

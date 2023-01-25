@@ -11,12 +11,13 @@ import {Router} from "@angular/router";
 export class AnimeListService {
 
   private configURL: string = 'https://kitsu.io/api/edge/anime';
+  public anime: Anime = {} as Anime;
 
   public constructor(private http: HttpClient, private router: Router) {
   }
 
-  public getAnime(): Observable<Array<Anime>> {
-    return this.http.get<any>(this.configURL + "?fields[anime]=id,canonicalTitle,synopsis,posterImage&page[limit]=8&page[offset]=0&sort=-userCount").pipe(map((response:any) => {
+  public getAnime(pageId:number): Observable<Array<Anime>> {
+    return this.http.get<any>(this.configURL + "?fields[anime]=id,canonicalTitle,synopsis,posterImage&page[limit]=8&page[offset]="+pageId*8+"&sort=-userCount").pipe(map((response:any) => {
         const animeList: Array<Anime> = new Array<Anime>();
         for (const item of response.data) {
           const anime: Anime = {
@@ -39,7 +40,7 @@ export class AnimeListService {
 
   public getAnimeById(id: number): Observable<AnimeDetails> {
     return this.http.get<any>(this.configURL + "?filter[id]=" + id).pipe(map((response:any) => {
-        const anime: AnimeDetails = {
+        return {
           id: response.data[0].id,
           title: response.data[0].attributes.canonicalTitle,
           description: response.data[0].attributes.synopsis,
@@ -58,8 +59,7 @@ export class AnimeListService {
           episodeLength: response.data[0].attributes.episodeLength,
           popularityRank: response.data[0].attributes.popularityRank,
           ratingRank: response.data[0].attributes.ratingRank
-        }
-        return anime;
+        };
       }),
       catchError(err => {
         console.log(err.message);

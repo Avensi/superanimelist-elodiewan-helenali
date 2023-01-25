@@ -7,16 +7,17 @@ import { FooterComponent } from './footer/footer.component';
 import { Error404Component } from './error404/error404.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { AnimeListComponent } from './anime-list/anime-list.component';
-import {ReactiveFormsModule} from "@angular/forms";
-import {SigningComponent} from "./signin/signing.component";
 import { AnimeComponent } from './anime/anime.component';
 import { ListComponent } from './list/list.component';
 import { ReviewComponent } from './review/review.component';
-import { AnimeCardComponent } from './anime-card/anime-card.component';
+import { AnimeCardComponent } from './animeList/anime-card/anime-card.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import { AnimeReviewComponent } from './anime-review/anime-review.component';
+import { AnimeReviewComponent } from './animeList/anime-review/anime-review.component';
 import {InterceptorService} from "./service/interceptor.service";
 import { SpinnerComponent } from './spinner/spinner.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTabsModule} from "@angular/material/tabs";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 @NgModule({
   declarations: [
@@ -37,6 +38,10 @@ import { SpinnerComponent } from './spinner/spinner.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatTabsModule,
+    MatPaginatorModule,
     ReactiveFormsModule,
     HttpClientModule,
   ],

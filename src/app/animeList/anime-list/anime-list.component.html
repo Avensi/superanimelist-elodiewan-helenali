@@ -1,0 +1,18 @@
+<div class="max-w-screen-xl mx-auto mb-5 mt-5">
+  <div class="grid grid-cols-4 gap-5">
+    <div *ngFor="let anime of animeList"
+         class="flex bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100">
+      <app-anime-card [anime]="anime"></app-anime-card>
+    </div>
+  </div>
+  <mat-paginator
+    class="demo-paginator"
+    (page)="handlePageEvent($event)"
+    [length]="length"
+    [pageSize]="pageSize"
+    [showFirstLastButtons]=true
+    [hidePageSize]=true
+    [pageIndex]="pageIndex"
+    aria-label="Select page">
+  </mat-paginator>
+</div>
