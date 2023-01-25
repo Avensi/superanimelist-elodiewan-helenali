@@ -43,7 +43,7 @@
           <p>Status : {{anime.status}}</p>
         </div>
       </div>
-      <mat-tab-group>
+      <mat-tab-group mat-align-tabs="start">
         <mat-tab label="Synopsis">
           <div class="text-justify border-2 p-2 mt-5 rounded-t-md">
             <p class="mb-2 text-xl">Synopsis :</p>
@@ -54,6 +54,7 @@
           <div class="grid grid-cols-4 gap-5">
             <div class="col-span-1" *ngFor="let animeReaction of animeReactionList">
               <app-anime-review [animeReaction]="animeReaction"></app-anime-review>
+
             </div>
           </div>
         </mat-tab>

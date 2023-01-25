@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {lastValueFrom, map, Observable} from "rxjs";
+import {map, Observable} from "rxjs";
 import {AnimeReaction} from "../model/anime-reaction";
 
 @Injectable({
@@ -22,8 +22,7 @@ export class AnimeReactionService {
           id: item.id,
           reaction: item.attributes.reaction,
           upVotesCount: item.attributes.upVotesCount,
-          createdAt: new Date(item.attributes.createdAt),
-          user: await lastValueFrom(this.getUser(item.id))
+          createdAt: new Date(item.attributes.createdAt)
         };
         this.animeReactionList.push(animeReaction);
       }
