@@ -1,18 +1,18 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {SignInService} from "../service/sign-in.service";
+import {Auth} from "../service/auth";
 import {UserClass} from "../model/user";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-signin',
-  templateUrl: './signing.component.html',
-  styleUrls: ['./signing.component.scss']
+  selector: 'app-logIn',
+  templateUrl: './logIn.component.html',
+  styleUrls: ['./logIn.component.scss']
 })
-export class SigningComponent {
+export class LogInComponent {
 
-  public constructor(private signInService : SignInService, private http : HttpClient, private router : Router) {}
+  public constructor(private signInService : Auth, private http : HttpClient, private router : Router) {}
 
 
   public signInForm: FormGroup = new FormGroup({
@@ -27,7 +27,6 @@ export class SigningComponent {
         this.signInForm.value['password'],
         "password",
         "",
-        false,
       )
       this.signInService.signIn();
       this.router.navigate(["/animeList"])

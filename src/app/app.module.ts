@@ -18,9 +18,10 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatPaginatorModule} from "@angular/material/paginator";
-import {SigningComponent} from "./signin/signing.component";
+import {LogInComponent} from "./logIn/logIn.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatExpansionModule} from "@angular/material/expansion";
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -30,13 +31,14 @@ import {MatExpansionModule} from "@angular/material/expansion";
     Error404Component,
     AccueilComponent,
     AnimeListComponent,
-    SigningComponent,
+    LogInComponent,
     AnimeComponent,
     ListComponent,
     ReviewComponent,
     AnimeCardComponent,
     AnimeReviewComponent,
     SpinnerComponent,
+    LogoutComponent,
 
   ],
   imports: [
