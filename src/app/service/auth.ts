@@ -16,7 +16,7 @@ export class Auth {
   }
   public userData!:UserClass;
 
-  public signIn() : void {
+  public logIn() : void {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
@@ -26,10 +26,14 @@ export class Auth {
       this.http.post<any>(this.configURL,JSON.stringify(this.userData), httpOptions).subscribe(event => {
       this.userData.token = event.access_token;
       this.isLoggedIn.next(true);
-      console.log(this.userData)
     })
 
+    }
+
+  public logOut() : void {
+    this.isLoggedIn.next(false);
   }
+
 
 
 }

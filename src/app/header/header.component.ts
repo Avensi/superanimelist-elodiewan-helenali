@@ -11,14 +11,13 @@ export class HeaderComponent implements OnInit{
   public pageList : string[] = ['animeList', 'list', 'reviews'];
   public isSigned : boolean = false;
 
-  public constructor(public signService : Auth) {
+  public constructor(public authService : Auth) {
   }
 
   ngOnInit(){
-    this.signService.isLoggedIn.subscribe((status) => {
+    this.authService.isLoggedIn.subscribe((status) => {
       this.isSigned = status;
     });
-    console.log(this.isSigned)
 
   }
 }

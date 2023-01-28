@@ -28,7 +28,7 @@ export class LogInComponent {
         "password",
         "",
       )
-      this.signInService.signIn();
+      this.signInService.logIn();
       this.router.navigate(["/animeList"])
     }
   }
