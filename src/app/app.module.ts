@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -19,6 +18,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatPaginatorModule} from "@angular/material/paginator";
+import {SigningComponent} from "./signin/signing.component";
+import {ReactiveFormsModule} from "@angular/forms";
 import {MatExpansionModule} from "@angular/material/expansion";
 
 @NgModule({
@@ -29,12 +30,14 @@ import {MatExpansionModule} from "@angular/material/expansion";
     Error404Component,
     AccueilComponent,
     AnimeListComponent,
+    SigningComponent,
     AnimeComponent,
     ListComponent,
     ReviewComponent,
     AnimeCardComponent,
     AnimeReviewComponent,
-    SpinnerComponent
+    SpinnerComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,7 @@ import {MatExpansionModule} from "@angular/material/expansion";
     BrowserAnimationsModule,
     MatTabsModule,
     MatPaginatorModule,
-    MatExpansionModule
+    MatExpansionModule,
     ReactiveFormsModule,
     HttpClientModule,
   ],

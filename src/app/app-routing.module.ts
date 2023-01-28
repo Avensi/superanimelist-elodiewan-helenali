@@ -7,6 +7,7 @@ import {ReviewComponent} from "./animeList/review/review.component";
 import {ListComponent} from "./list/list.component";
 import {AnimeComponent} from "./animeList/anime/anime.component";
 import {ReactionsResolver} from "./resolver/reactions.resolver";
+import {SigningComponent} from "./signin/signing.component";
 
 const routes: Routes = [
   {path: 'animeList', component: AnimeListComponent},

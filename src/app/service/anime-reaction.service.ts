@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {lastValueFrom, map, Observable} from "rxjs";
-import {AnimeReaction} from "../model/animeReaction";
+import {AnimeReaction} from "../model/anime-reaction";
 
 @Injectable({
   providedIn: 'root'
