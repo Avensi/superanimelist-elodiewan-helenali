@@ -22,25 +22,27 @@ import {LogInComponent} from "./logIn/logIn.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatExpansionModule} from "@angular/material/expansion";
 import { LogoutComponent } from './logout/logout.component';
+import {ReviewInputComponent} from "./review-input/review-input.component";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    Error404Component,
-    AccueilComponent,
-    AnimeListComponent,
-    LogInComponent,
-    AnimeComponent,
-    ListComponent,
-    ReviewComponent,
-    AnimeCardComponent,
-    AnimeReviewComponent,
-    SpinnerComponent,
-    LogoutComponent,
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        FooterComponent,
+        Error404Component,
+        AccueilComponent,
+        AnimeListComponent,
+        LogInComponent,
+        AnimeComponent,
+        ListComponent,
+        ReviewComponent,
+        AnimeCardComponent,
+        AnimeReviewComponent,
+        SpinnerComponent,
+        LogoutComponent,
+        ReviewInputComponent,
 
-  ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
