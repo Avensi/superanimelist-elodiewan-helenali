@@ -10,6 +10,7 @@ import {Auth} from "../../service/auth";
 export class AnimeStatsComponent implements OnInit{
   @Input()
   public anime: AnimeDetails = {} as AnimeDetails;
+
   public loggedIn: boolean = false;
 
   public constructor(private authService: Auth){}

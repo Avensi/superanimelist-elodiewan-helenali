@@ -50,7 +50,7 @@ import {ReviewInputComponent} from "./features/review-input/review-input.compone
     ReviewListComponent,
     AnimeStatsComponent,
     BackArrowComponent,
-    AddRatingComponent
+    AddRatingComponent,
 
   ],
   imports: [

@@ -9,4 +9,7 @@ import {AnimeReaction} from "../../model/anime-reaction";
 export class ReviewListComponent {
   @Input()
   public animeReactionList:Array<AnimeReaction> = new Array<AnimeReaction>();
+  @Input()
+  public userReviewList : Array<AnimeReaction> = new Array<AnimeReaction>();
+
 }
