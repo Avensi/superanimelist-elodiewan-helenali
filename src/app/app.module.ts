@@ -25,6 +25,7 @@ import { AnimeStatsComponent } from './features/anime-stats/anime-stats.componen
 import { BackArrowComponent } from './commons/back-arrow/back-arrow.component';
 import {MatSelectModule} from "@angular/material/select";
 import {FormsModule} from "@angular/forms";
+import { AddRatingComponent } from './features/add-rating/add-rating.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {FormsModule} from "@angular/forms";
     SpinnerComponent,
     ReviewListComponent,
     AnimeStatsComponent,
-    BackArrowComponent
+    BackArrowComponent,
+    AddRatingComponent
   ],
   imports: [
     BrowserModule,

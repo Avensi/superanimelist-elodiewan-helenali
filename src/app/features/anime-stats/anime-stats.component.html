@@ -17,14 +17,11 @@
     <p>Average episode length : {{anime.episodeLength}}</p>
   </div>
   <div class="pl-2 col-span-3 text-lg">
-    <p>Give your own score !</p>
-    <mat-form-field appearance="fill">
-      <mat-label>Your score</mat-label>
-      <mat-select [(value)]="currentScore" (selectionChange)="onChange($event)">
-        <mat-option *ngFor="let i of animeScoreRange" [value]=i>
-          {{i}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+    <div *ngIf="loggedIn else giveScore">
+      <app-add-rating [animeId]="anime.id"></app-add-rating>
+    </div>
+    <ng-template #giveScore>
+      <p>Login to give your own score !</p>
+    </ng-template>
   </div>
 </div>

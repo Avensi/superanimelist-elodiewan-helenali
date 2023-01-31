@@ -1,0 +1,9 @@
+<p>Give your own score !</p>
+<mat-form-field appearance="fill">
+  <mat-label>Your score</mat-label>
+  <mat-select [(value)]="currentScore" (selectionChange)="onChange($event)">
+    <mat-option *ngFor="let i of animeScoreRange" [value]=i>
+      {{i}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
