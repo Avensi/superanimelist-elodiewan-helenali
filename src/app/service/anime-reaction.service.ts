@@ -28,7 +28,6 @@ export class AnimeReactionService {
         animeReactionList.push(animeReaction);
       }
       this.animeReactionList = animeReactionList;
-      console.log(this.animeReactionList);
       return this.animeReactionList;
     }));
   }

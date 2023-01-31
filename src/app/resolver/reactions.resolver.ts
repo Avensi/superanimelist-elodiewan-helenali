@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {
   Resolve,
   ActivatedRouteSnapshot
 } from '@angular/router';
-import { Observable } from 'rxjs';
+import {Observable} from 'rxjs';
 import {AnimeReactionService} from "../service/anime-reaction.service";
 import {AnimeReaction} from "../model/anime-reaction";
 import {AnimeListService} from "../service/anime-list.service";

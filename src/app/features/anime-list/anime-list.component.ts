@@ -15,7 +15,9 @@ export class AnimeListComponent implements OnInit {
   public pageSize: number = 8;
   public pageIndex: number = 0;
   public animeList: Array<Anime> = new Array<Anime>();
+
   @ViewChild('top', { read: ElementRef }) tableInput!: ElementRef;
+
   public constructor(private animeListService: AnimeListService) {
   }
 

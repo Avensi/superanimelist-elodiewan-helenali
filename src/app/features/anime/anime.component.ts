@@ -35,7 +35,6 @@ export class AnimeComponent implements OnInit{
     this.anime = await lastValueFrom(this.animeListService.getAnimeById(this.animeId));
     this.season = this.seasonList[Math.round(this.anime.startDate.getMonth()/4)];
     this.animeReactionList = this.animeReactionService.animeReactionList;
-
   }
 
 }
