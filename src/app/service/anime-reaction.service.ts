@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {map, Observable} from "rxjs";
+import {lastValueFrom, map, Observable} from "rxjs";
 import {AnimeReaction} from "../model/anime-reaction";
 
 @Injectable({

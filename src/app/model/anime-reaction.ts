@@ -1,4 +1,7 @@
 export interface AnimeReaction {
+
+
+
   id:number;
   reaction:string;
   upVotesCount:number;
