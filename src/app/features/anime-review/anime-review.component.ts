@@ -8,5 +8,5 @@ import {AnimeReaction} from "../../model/anime-reaction";
 })
 export class AnimeReviewComponent {
   @Input()
-  public animeReactionList:Array<AnimeReaction> = new Array<AnimeReaction>();
+  public animeReaction:AnimeReaction = {} as AnimeReaction;
 }

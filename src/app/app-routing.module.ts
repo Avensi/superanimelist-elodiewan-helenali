@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {Error404Component} from "./error404/error404.component";
+import {Error404Component} from "./commons/error404/error404.component";
 import {AccueilComponent} from "./accueil/accueil.component";
-import {AnimeListComponent} from "./animeList/anime-list/anime-list.component";
-import {ReviewComponent} from "./animeList/review/review.component";
+import {AnimeListComponent} from "./features/anime-list/anime-list.component";
+import {ReviewComponent} from "./review/review.component";
 import {ListComponent} from "./list/list.component";
-import {AnimeComponent} from "./animeList/anime/anime.component";
+import {AnimeComponent} from "./features/anime/anime.component";
 import {ReactionsResolver} from "./resolver/reactions.resolver";
 
 const routes: Routes = [

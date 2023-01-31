@@ -1,0 +1,12 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{(animeReaction.reaction.length > 30) ? (animeReaction.reaction | slice:0:25) + '...' : (animeReaction.reaction)}}
+    </mat-panel-title>
+    <mat-panel-description>
+      {{animeReaction.createdAt | date: 'dd/MM/yyyy'}}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <p>{{animeReaction.reaction}}</p>
+</mat-expansion-panel>
+
