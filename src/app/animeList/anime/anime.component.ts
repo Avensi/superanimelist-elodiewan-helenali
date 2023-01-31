@@ -15,11 +15,11 @@ import {AnimeReactionService} from "../../service/anime-reaction.service";
 export class AnimeComponent implements OnInit{
 
   public anime:AnimeDetails = {} as AnimeDetails;
-  public season: String = "";
+  public season: string = "";
   public animeId: number = 0;
   public animeReactionList:Array<AnimeReaction> = new Array<AnimeReaction>();
 
-  private seasonList: String[] = ["Winter", "Spring", "Summer", "Fall"];
+  private seasonList: string[] = ["Winter", "Spring", "Summer", "Fall"];
 
   public constructor(
     private activatedRoute: ActivatedRoute,

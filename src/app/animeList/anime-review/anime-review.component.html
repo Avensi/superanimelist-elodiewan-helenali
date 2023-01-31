@@ -1,15 +1,15 @@
-<mat-accordion>
+<mat-accordion class="w-2/5 mt-5 block">
   <ng-container *ngFor="let animeReaction of animeReactionList">
-    <mat-expansion-panel hideToggle>
+    <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          This is the expansion title
+          {{(animeReaction.reaction.length>20)? (animeReaction.reaction | slice:0:20)+'...':(animeReaction.reaction)}}
         </mat-panel-title>
         <mat-panel-description>
-          {{animeReaction.reaction}}
+          {{animeReaction.createdAt | date: 'dd/MM/yyyy'}}
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <p>This is the primary content of the panel.</p>
+      <p>{{animeReaction.reaction}}</p>
     </mat-expansion-panel>
   </ng-container>
 </mat-accordion>

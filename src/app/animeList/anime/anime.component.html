@@ -43,14 +43,14 @@
           <p>Status : {{anime.status}}</p>
         </div>
       </div>
-      <mat-tab-group mat-align-tabs="start">
+      <mat-tab-group>
         <mat-tab label="Synopsis">
           <div class="text-justify border-2 p-2 mt-5 rounded-t-md">
             <p class="mb-2 text-xl">Synopsis :</p>
             <span class="block p-2">{{anime.description}}</span>
           </div>
         </mat-tab>
-        <mat-tab label="Reactions">
+        <mat-tab label="Reactions" class="mb-5">
           <app-review [animeReactionList]="animeReactionList"></app-review>
         </mat-tab>
         <mat-tab label="Third"> Content 3</mat-tab>

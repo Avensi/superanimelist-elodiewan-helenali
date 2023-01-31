@@ -17,6 +17,7 @@ export class AnimeReactionService {
 
   public getAnimeReactionById(animeId: number): Observable<Promise<Array<AnimeReaction>>> {
     return this.http.get<any>(this.configURL + '?filter[animeId]=' + animeId+ '&include=user').pipe(map(async (response: any) => {
+      const animeReactionList : Array<AnimeReaction>  = new Array<AnimeReaction>();
       for (const item of response.data) {
         const animeReaction: AnimeReaction = {
           id: item.id,
@@ -24,15 +25,10 @@ export class AnimeReactionService {
           upVotesCount: item.attributes.upVotesCount,
           createdAt: new Date(item.attributes.createdAt)
         };
-        this.animeReactionList.push(animeReaction);
+        animeReactionList.push(animeReaction);
       }
+      this.animeReactionList = animeReactionList;
       return this.animeReactionList;
-    }));
-  }
-
-  private getUser(commentId: number): Observable<string> {
-    return this.http.get<any>(this.configURL + commentId + '/user').pipe(map((response: any) => {
-      return response.data.attributes.name;
     }));
   }
 }
