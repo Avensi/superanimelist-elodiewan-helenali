@@ -21,6 +21,10 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatExpansionModule} from "@angular/material/expansion";
 import { ReviewListComponent } from './features/review-list/review-list.component';
+import { AnimeStatsComponent } from './features/anime-stats/anime-stats.component';
+import { BackArrowComponent } from './commons/back-arrow/back-arrow.component';
+import {MatSelectModule} from "@angular/material/select";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -36,7 +40,9 @@ import { ReviewListComponent } from './features/review-list/review-list.componen
     AnimeCardComponent,
     AnimeReviewComponent,
     SpinnerComponent,
-    ReviewListComponent
+    ReviewListComponent,
+    AnimeStatsComponent,
+    BackArrowComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +51,9 @@ import { ReviewListComponent } from './features/review-list/review-list.componen
     BrowserAnimationsModule,
     MatTabsModule,
     MatPaginatorModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSelectModule,
+    FormsModule
   ],
   providers: [{provide:HTTP_INTERCEPTORS, useClass:InterceptorService, multi:true}],
   bootstrap: [AppComponent]
