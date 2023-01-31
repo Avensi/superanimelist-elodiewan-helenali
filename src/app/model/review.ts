@@ -1,15 +1,5 @@
-export class Review {
-
-
-  public constructor(
-    public reaction:string,
-    public createdAt: Date,
-    public idAnime : number,
-) {}
-
-
-
-
-
-
+export interface Review {
+  reaction: string;
+  createdAt: Date;
+  animeId: number;
 }

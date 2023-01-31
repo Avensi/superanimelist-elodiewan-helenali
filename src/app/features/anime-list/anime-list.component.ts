@@ -28,8 +28,6 @@ export class AnimeListComponent implements OnInit {
     this.animeList = JSON.parse(sessionStorage.getItem('animeList') || '{}');
   }
 
-
-
   public async handlePageEvent(e: PageEvent) : Promise<void> {
     this.pageEvent = e;
     this.length = e.length;

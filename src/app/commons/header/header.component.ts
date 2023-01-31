@@ -1,6 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {Auth} from "../service/auth";
-import {lastValueFrom} from "rxjs";
+import {Component, OnInit} from "@angular/core";
+import {Auth} from "../../service/auth";
 
 @Component({
   selector: 'app-header',
@@ -11,11 +10,11 @@ export class HeaderComponent implements OnInit{
   public pageList : string[] = ['animeList', 'list', 'reviews'];
   public isSigned : boolean = false;
 
-  public constructor(public authService : Auth) {
+  public constructor(private authService : Auth) {
   }
 
-  ngOnInit(){
-    this.authService.isLoggedIn.subscribe((status) => {
+  public ngOnInit(): void{
+    this.authService.isLoggedIn.subscribe((status: boolean) => {
       this.isSigned = status;
     });
 

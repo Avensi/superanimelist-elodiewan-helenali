@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {AddReviewService} from "../service/add-review.service";
-import {Review} from "../model/review";
+import {AddReviewService} from "../../service/add-review.service";
 import {ActivatedRoute} from "@angular/router";
-import {lastValueFrom} from "rxjs";
+
 @Component({
   selector: 'app-review-input',
   templateUrl: './review-input.component.html',
@@ -26,11 +25,11 @@ export class ReviewInputComponent implements OnInit{
   }
   public onSubmit(): void {
     if (this.reviewForm.valid) {
-      this.reviewService.review = new Review(
-        this.reviewForm.value['review'],
-        new Date(),
-        this.animeId
-      )
+      this.reviewService.review = {
+        reaction: this.reviewForm.value['review'],
+        createdAt: new Date(),
+        animeId: this.animeId
+      }
       this.reviewService.addReview();
     }
   }

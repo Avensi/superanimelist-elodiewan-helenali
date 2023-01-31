@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Auth} from "../service/auth";
-import {UserClass} from "../model/user";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Auth} from "../../service/auth";
+import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 
 @Component({
@@ -12,8 +11,11 @@ import {Router} from "@angular/router";
 })
 export class LogInComponent {
 
-  public constructor(private signInService : Auth, private http : HttpClient, private router : Router) {}
-
+  public constructor(
+    private signInService: Auth,
+    private http: HttpClient,
+    private router: Router) {
+  }
 
   public signInForm: FormGroup = new FormGroup({
     username: new FormControl('', Validators.required),
@@ -22,12 +24,12 @@ export class LogInComponent {
 
   public onSubmit(): void {
     if (this.signInForm.valid) {
-      this.signInService.userData = new UserClass(
-        this.signInForm.value['username'],
-        this.signInForm.value['password'],
-        "password",
-        "",
-      )
+      this.signInService.userData = {
+        username: this.signInForm.value['username'],
+        password: this.signInForm.value['password'],
+        grant_type: "password",
+        token: ""
+      }
       this.signInService.logIn();
       this.router.navigate(["/animeList"])
     }

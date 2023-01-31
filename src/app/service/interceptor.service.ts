@@ -8,7 +8,7 @@ import {SpinnerService} from "./spinner.service";
 })
 export class InterceptorService implements HttpInterceptor {
 
-  constructor(public spinnerService: SpinnerService) {
+  constructor(private spinnerService: SpinnerService) {
   }
 
   public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {

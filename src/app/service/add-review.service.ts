@@ -1,32 +1,21 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Review} from "../model/review";
-import {lastValueFrom} from "rxjs";
-import {Anime} from "../model/anime";
-
-
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class AddReviewService {
+  public review: Review = {} as Review;
 
-  constructor() {}
-
-  public review!: Review;
-
-
-  public addReview() : void {
-    if(sessionStorage.getItem('reviewList') === null) {
-      const reviewList : Array<Review> = new Array<Review>();
+  public addReview(): void {
+    if (sessionStorage.getItem('reviewList') === null) {
+      const reviewList: Array<Review> = new Array<Review>();
       reviewList.push(this.review);
       sessionStorage.setItem('reviewList', JSON.stringify(reviewList));
     } else {
-      const reviewList : Array<Review> = JSON.parse(sessionStorage.getItem('reviewList') || 'undefined');
+      const reviewList: Array<Review> = JSON.parse(sessionStorage.getItem('reviewList') || 'undefined');
       reviewList.push(this.review);
       sessionStorage.setItem('reviewList', JSON.stringify(reviewList));
-
     }
   }
-
 }

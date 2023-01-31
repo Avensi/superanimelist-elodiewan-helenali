@@ -1,5 +1,4 @@
-import {Component, Input} from '@angular/core';
-import {AnimeReaction} from "../model/anime-reaction";
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-review',
@@ -7,6 +6,4 @@ import {AnimeReaction} from "../model/anime-reaction";
   styleUrls: ['./review.component.scss']
 })
 export class ReviewComponent {
-  @Input()
-  public animeReactionList:Array<AnimeReaction> = new Array<AnimeReaction>();
 }

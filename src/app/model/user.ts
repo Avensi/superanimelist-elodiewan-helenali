@@ -1,11 +1,6 @@
-export class UserClass {
-  public constructor(
-    public username : string,
-    public password : string,
-    public grant_type : string,
-    public token : string,
-
-
-  ){}
-
+export interface UserClass {
+  username : string;
+  password : string;
+  grant_type : string;
+  token : string;
 }
