@@ -1,0 +1,39 @@
+<div *ngIf="spinner.isLoading | async; else showContent" class="flex justify-center">
+  <div class="h-20 w-20 mt-56">
+    <app-spinner></app-spinner>
+  </div>
+</div>
+
+<ng-template #showContent>
+  <div class="grid grid-cols-5 grid-flow-row gap-4 mb-5">
+    <img class="brightness-50 col-span-5 cover" src="{{anime.coverImage}}" alt="{{anime.title}}">
+    <div class="absolute ml-5 mt-5 ">
+      <app-back-arrow returnURL="/animeList"></app-back-arrow>
+    </div>
+    <img class="poster absolute" src="{{anime.posterImageURL}}" alt="{{anime.title}}">
+    <div class="col-span-1 left-col">
+      <p *ngIf="anime.titleEnJp">Romaji : {{anime.titleEnJp}}</p>
+      <p *ngIf="anime.titleEn">English : {{anime.titleEn}}</p>
+      <p *ngIf="anime.titleJp">Japanese : {{anime.titleJp}}</p>
+      <p class="mt-3">Start Date : {{anime.startDate | date:'dd/MM/yyyy'}}</p>
+      <p>End Date : {{anime.endDate | date:'dd/MM/yyyy'}}</p>
+      <p>Season : {{season}} {{anime.startDate.getFullYear()}}</p>
+    </div>
+    <div class="col-span-4 w-auto ml-1 mr-5 ">
+      <p class="font-bold tracking-tight text-gray-900 text-4xl mb-2">{{anime.title}}</p>
+      <app-anime-stats [anime]="anime"></app-anime-stats>
+      <mat-tab-group>
+        <mat-tab label="Synopsis">
+          <div class="text-justify border-2 p-2 mt-5 rounded-t-md">
+            <p class="mb-2 text-xl">Synopsis :</p>
+            <span class="block p-2">{{anime.description}}</span>
+          </div>
+        </mat-tab>
+        <mat-tab label="Reactions" class="mb-5">
+          <app-review-list [animeReactionList]="animeReactionList"></app-review-list>
+        </mat-tab>
+        <mat-tab label="Third"> Content 3</mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</ng-template>
