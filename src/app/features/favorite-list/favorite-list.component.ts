@@ -1,15 +1,14 @@
-import {Component, ElementRef, Input, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Anime} from "../../model/anime";
-import {AnimeListService} from "../../service/anime-list.service";
 import {FavoriteService} from "../../service/favorite.service";
-import {lastValueFrom} from "rxjs";
+
 
 @Component({
   selector: 'app-favorite-list',
   templateUrl: './favorite-list.component.html',
   styleUrls: ['./favorite-list.component.scss']
 })
-export class FavoriteListComponent {
+export class FavoriteListComponent implements OnInit{
   public favoriteList:Array<Anime> = new Array<Anime>();
 
   @ViewChild('top', { read: ElementRef }) tableInput!: ElementRef;
