@@ -10,7 +10,6 @@ export class AddRatingComponent implements OnInit{
 
   @Input()
   public animeId:number = 0;
-
   public animeScoreRange: number[] = [1,2,3,4,5];
   public currentScore!: number;
 

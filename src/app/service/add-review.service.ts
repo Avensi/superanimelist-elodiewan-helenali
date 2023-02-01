@@ -13,9 +13,9 @@ export class AddReviewService {
       userReviewList.push(this.review);
       sessionStorage.setItem('userReviewList', JSON.stringify(userReviewList));
     } else {
-      const AnimeReactionList: Array<AnimeReaction> = JSON.parse(sessionStorage.getItem('userReviewList') || '{}');
-      AnimeReactionList.push(this.review);
-      sessionStorage.setItem('userReviewList', JSON.stringify(AnimeReactionList));
+      const userReviewList: Array<AnimeReaction> = JSON.parse(sessionStorage.getItem('userReviewList') || '{}');
+      userReviewList.push(this.review);
+      sessionStorage.setItem('userReviewList', JSON.stringify(userReviewList));
       console.log(JSON.parse(sessionStorage.getItem('userReviewList') || 'undefined'))
     }
   }

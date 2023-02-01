@@ -1,0 +1,5 @@
+<mat-accordion class="w-2/5 mt-5 block">
+  <ng-container *ngFor="let favorite of favoriteList">
+    <app-anime-card [anime]="favorite"></app-anime-card>
+  </ng-container>
+</mat-accordion>

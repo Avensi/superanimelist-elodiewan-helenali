@@ -9,4 +9,8 @@ import {Anime} from "../../model/anime";
 export class AnimeCardComponent {
   @Input()
   public anime:Anime = {} as Anime;
+
+  @Input()
+  public favorite:Boolean = false;
+
 }

@@ -8,7 +8,6 @@ import {Error404Component} from './commons/error404/error404.component';
 import {AccueilComponent} from './accueil/accueil.component';
 import {AnimeListComponent} from './features/anime-list/anime-list.component';
 import {AnimeComponent} from './features/anime/anime.component';
-import {ListComponent} from './list/list.component';
 import {ReviewComponent} from './review/review.component';
 import {AnimeCardComponent} from './features/anime-card/anime-card.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
@@ -29,6 +28,10 @@ import {FormsModule} from "@angular/forms";
 import {AddRatingComponent} from './features/add-rating/add-rating.component';
 import {LogoutComponent} from './commons/logout/logout.component';
 import {ReviewInputComponent} from "./features/review-input/review-input.component";
+import { FavoriteButtonComponent } from './features/favorite-button/favorite-button.component';
+import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
+import { FavoriteListComponent } from './features/favorite-list/favorite-list.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,6 @@ import {ReviewInputComponent} from "./features/review-input/review-input.compone
     AnimeListComponent,
     LogInComponent,
     AnimeComponent,
-    ListComponent,
     ReviewComponent,
     AnimeCardComponent,
     AnimeReviewComponent,
@@ -51,6 +53,8 @@ import {ReviewInputComponent} from "./features/review-input/review-input.compone
     AnimeStatsComponent,
     BackArrowComponent,
     AddRatingComponent,
+    FavoriteButtonComponent,
+    FavoriteListComponent,
 
   ],
   imports: [
@@ -65,6 +69,8 @@ import {ReviewInputComponent} from "./features/review-input/review-input.compone
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatButtonModule,
+    MatIconModule,
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}],
   bootstrap: [AppComponent]
