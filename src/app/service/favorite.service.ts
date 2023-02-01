@@ -13,11 +13,23 @@ export class FavoriteService {
       sessionStorage.setItem('favoriteList', JSON.stringify(favoriteList));
     } else {
       const favoriteList: Array<Anime> = JSON.parse(sessionStorage.getItem('favoriteList') || '{}');
-      favoriteList.push(anime);
+      if (!this.isAlreadyFavorite(anime, favoriteList)){
+        favoriteList.push(anime)
+      }
+
       sessionStorage.setItem('favoriteList', JSON.stringify(favoriteList));
 
     }
-    console.log(JSON.parse(sessionStorage.getItem('favoriteList') || 'undefined'))
+
+  }
+
+  private isAlreadyFavorite(anime : Anime, currentFavoriteList : Array<Anime>) : boolean{
+    for(const fav of currentFavoriteList){
+      if (JSON.stringify(fav) === JSON.stringify(anime)){
+        return true
+      }
+    }
+    return false
   }
 
 

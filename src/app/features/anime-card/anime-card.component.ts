@@ -11,6 +11,6 @@ export class AnimeCardComponent {
   public anime:Anime = {} as Anime;
 
   @Input()
-  public favorite:Boolean = false;
+  public favorite:boolean = false;
 
 }

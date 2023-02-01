@@ -1,5 +1,9 @@
-<mat-accordion class="w-2/5 mt-5 block">
-  <ng-container *ngFor="let favorite of favoriteList">
-    <app-anime-card [anime]="favorite"></app-anime-card>
-  </ng-container>
-</mat-accordion>
+
+<div class="max-w-screen-xl mx-auto mb-5 mt-5">
+  <div class="grid grid-cols-4 gap-5">
+    <div *ngFor="let favorite of favoriteList"
+         class="flex bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100">
+      <app-anime-card [anime]="favorite"></app-anime-card>
+    </div>
+  </div>
+</div>
