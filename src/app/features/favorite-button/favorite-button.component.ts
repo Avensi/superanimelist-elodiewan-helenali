@@ -29,8 +29,15 @@ export class FavoriteButtonComponent implements OnInit{
 
   public toggleFavorite() : void {
     this.favorite =! this.favorite;
+    if(this.favorite){
+      this.favoriteService.addFavorite(this.anime);
+    }else{
+      this.favoriteService.removeFavorite(this.anime);
+    }
+
     this.selectedChange.emit(this.favorite);
-    this.favoriteService.addFavorite(this.anime);
+
+
 
   }
 
