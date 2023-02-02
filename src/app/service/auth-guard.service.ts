@@ -13,7 +13,7 @@ export class AuthGuardService implements CanActivate {
     this.authService.isLoggedIn.subscribe((status: boolean) => {
       this.isSigned = status;
     });
-    console.log(this.isSigned)
+
     if (!this.isSigned) {
       this.router.navigate(['signIn']);
       return false;
