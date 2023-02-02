@@ -32,6 +32,7 @@ import { FavoriteButtonComponent } from './features/favorite-button/favorite-but
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import { FavoriteListComponent } from './features/favorite-list/favorite-list.component';
+import { FavoriteAnimeCardComponent } from './features/favorite-anime-card/favorite-anime-card.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { FavoriteListComponent } from './features/favorite-list/favorite-list.co
     AddRatingComponent,
     FavoriteButtonComponent,
     FavoriteListComponent,
+    FavoriteAnimeCardComponent,
 
   ],
   imports: [

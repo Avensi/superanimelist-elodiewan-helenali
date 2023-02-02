@@ -1,0 +1,12 @@
+
+
+  <div class="relative overflow-hidden bg-no-repeat bg-cover max-w-xs" data-mdb-ripple="true" data-mdb-ripple-color="light">
+    <app-favorite-button [anime]="anime" [favorite]="favorite"></app-favorite-button>
+    <img src="{{anime.posterImageURL}}" alt="{{anime.title}}" >
+    <figcaption class="absolute text-lg -mt-16 text-white px-4">
+      <p class=" justify-items-center  truncate font-bold tracking-tight text-white backdrop-blur-3xl text-center mb-2">{{anime.title}}</p>
+    </figcaption>
+    <a [routerLink]="['/anime', anime.id]">
+      <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+    </a>
+  </div>
