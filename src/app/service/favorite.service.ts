@@ -23,7 +23,7 @@ export class FavoriteService {
 
   }
 
-  private isAlreadyFavorite(anime : Anime, currentFavoriteList : Array<Anime>) : boolean{
+  public isAlreadyFavorite(anime : Anime, currentFavoriteList : Array<Anime>) : boolean{
     for(const fav of currentFavoriteList){
       if (JSON.stringify(fav) === JSON.stringify(anime)){
         return true

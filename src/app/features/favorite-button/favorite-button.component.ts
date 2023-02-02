@@ -18,7 +18,10 @@ export class FavoriteButtonComponent implements OnInit{
   public constructor(private favoriteService : FavoriteService,  private authService: Auth) {}
 
   public async ngOnInit(): Promise<void> {
-
+    const favoriteList: Array<Anime> = JSON.parse(sessionStorage.getItem('favoriteList') || '{}')
+    if(this.favoriteService.isAlreadyFavorite(this.anime, favoriteList)){
+      this.favorite = true;
+    }
     this.authService.isLoggedIn.subscribe((status: boolean) => {
       this.loggedIn = status;
     });
