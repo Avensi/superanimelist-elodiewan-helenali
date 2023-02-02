@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {AnimeListService} from "../../service/anime-list.service";
 import {lastValueFrom} from "rxjs";

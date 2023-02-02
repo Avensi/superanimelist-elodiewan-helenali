@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {FavoriteService} from "../../service/favorite.service";
 import {Anime} from "../../model/anime";
 import {Auth} from "../../service/auth";
@@ -12,6 +12,7 @@ export class FavoriteButtonComponent implements OnInit{
   @Input() favorite: boolean = false;
   @Input() anime : Anime = {} as Anime;
   @Output() selectedChange = new EventEmitter<boolean>();
+  @ViewChild('top', { read: ElementRef }) tableInput!: ElementRef;
 
   public loggedIn: boolean = false;
 
