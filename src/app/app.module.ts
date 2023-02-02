@@ -8,7 +8,6 @@ import {Error404Component} from './commons/error404/error404.component';
 import {AccueilComponent} from './accueil/accueil.component';
 import {AnimeListComponent} from './features/anime-list/anime-list.component';
 import {AnimeComponent} from './features/anime/anime.component';
-import {ReviewComponent} from './review/review.component';
 import {AnimeCardComponent} from './features/anime-card/anime-card.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AnimeReviewComponent} from './features/anime-review/anime-review.component';
@@ -44,7 +43,6 @@ import { FavoriteAnimeCardComponent } from './features/favorite-anime-card/favor
     AnimeListComponent,
     LogInComponent,
     AnimeComponent,
-    ReviewComponent,
     AnimeCardComponent,
     AnimeReviewComponent,
     SpinnerComponent,

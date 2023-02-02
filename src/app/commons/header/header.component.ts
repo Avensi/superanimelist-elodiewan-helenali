@@ -7,7 +7,7 @@ import {Auth} from "../../service/auth";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit{
-  public pageList : string[] = ['animeList', 'favorite', 'reviews'];
+  public pageList : string[] = ['animeList', 'favorite'];
   public isSigned : boolean = false;
 
   public constructor(private authService : Auth) {
