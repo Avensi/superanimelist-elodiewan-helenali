@@ -1,6 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Auth} from "../../service/auth";
-import {AnimeReaction} from "../../model/anime-reaction";
 
 
 @Component({
@@ -10,8 +9,7 @@ import {AnimeReaction} from "../../model/anime-reaction";
 })
 export class AuthButtonComponent implements OnInit{
 
-  @Input() isLoggedIn : boolean = this.authService.isLoggedIn;
-  @Output() selectedChange = new EventEmitter<boolean>();
+  @Input() public isLoggedIn : boolean = false;
 
   public constructor(private authService: Auth) {}
 
@@ -19,16 +17,13 @@ export class AuthButtonComponent implements OnInit{
     this.authService.statut.subscribe((value:boolean) => {
       this.isLoggedIn = value;
     })
+    console.log(this.isLoggedIn)
   }
 
   public toggleLogin() : void {
-    this.isLoggedIn =! this.authService.isLoggedIn;
     if(this.isLoggedIn){
-      this.authService.logIn();
-    }else{
       this.authService.logOut();
     }
-    this.selectedChange.emit(this.isLoggedIn);
   }
 
 

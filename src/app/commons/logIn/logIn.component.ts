@@ -12,7 +12,7 @@ import {Router} from "@angular/router";
 export class LogInComponent {
 
   public constructor(
-    private signInService: Auth,
+    private authService: Auth,
     private http: HttpClient,
     private router: Router) {
   }
@@ -27,12 +27,12 @@ export class LogInComponent {
 
   public onSubmit(): void {
     if (this.signInForm.valid) {
-      this.signInService.userData = {
+      this.authService.userData = {
         username: this.signInForm.value['email'],
         password: this.signInForm.value['password'],
         grant_type: "password",
       }
-      this.signInService.logIn();
+      this.authService.logIn();
       this.router.navigate([""])
     }
   }

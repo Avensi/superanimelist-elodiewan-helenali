@@ -3,6 +3,7 @@ import {FavoriteService} from "../../service/favorite.service";
 import {Anime} from "../../model/anime";
 import {Auth} from "../../service/auth";
 import {AnimeReaction} from "../../model/anime-reaction";
+import * as child_process from "child_process";
 
 @Component({
   selector: 'app-favorite-button',
@@ -12,16 +13,12 @@ import {AnimeReaction} from "../../model/anime-reaction";
 export class FavoriteButtonComponent implements OnInit{
 
 
-  @Input() isLoggedIn : boolean = false;
-  @Input() favorite: boolean = false;
-  @Input() anime : Anime = {} as Anime;
-  @Output() selectedChange = new EventEmitter<boolean>();
+  @Input() public isLoggedIn : boolean = false;
+  @Input() public favorite: boolean = false;
+  @Input() public anime : Anime = {} as Anime;
   @ViewChild('top', { read: ElementRef }) tableInput!: ElementRef;
 
-  private currUser: string = this.authService.getCurrentUser();
-
-  public favoriteList : Array<Anime> = JSON.parse(sessionStorage.getItem(this.currUser) || '[]');
-
+  public favoriteList : Array<Anime> = new Array<Anime>();
 
   public constructor(private favoriteService : FavoriteService,  private authService: Auth) {}
 
@@ -31,22 +28,14 @@ export class FavoriteButtonComponent implements OnInit{
       this.isLoggedIn = value;
     });
 
-    this.authService.currUser.subscribe((value:string) => {
-      this.currUser = value;
-    });
 
-    this.favoriteService.changeFavorite.subscribe((value:Array<Anime>) => {
-      this.favoriteList = value.concat(this.favoriteList);
-    })
+    this.favoriteList = JSON.parse(sessionStorage.getItem(this.authService.getCurrentUser()) || '[]')
 
     if(this.favoriteList.length != 0){
       if(this.favoriteService.isAlreadyFavorite(this.anime, this.favoriteList)){
         this.favorite = true;
       }
     }
-
-
-
   }
 
   public toggleFavorite() : void {
@@ -56,10 +45,6 @@ export class FavoriteButtonComponent implements OnInit{
     }else{
       this.favoriteService.removeFavorite(this.anime);
     }
-
-    this.selectedChange.emit(this.favorite);
-
-
 
   }
 
