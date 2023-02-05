@@ -10,9 +10,7 @@ export class AuthGuardService implements CanActivate {
   constructor(public authService: Auth, public router: Router) {}
   public canActivate(): boolean {
 
-    this.authService.statut.subscribe((value:boolean) => {
-      this.isLoggedIn = this.authService.statut.value;
-    })
+    this.isLoggedIn = this.authService.statut.value;
 
     if (!this.isLoggedIn) {
       this.router.navigate(['login']);

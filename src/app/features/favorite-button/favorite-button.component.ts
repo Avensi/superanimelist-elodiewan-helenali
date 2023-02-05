@@ -1,9 +1,8 @@
-import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {FavoriteService} from "../../service/favorite.service";
 import {Anime} from "../../model/anime";
 import {Auth} from "../../service/auth";
-import {AnimeReaction} from "../../model/anime-reaction";
-import * as child_process from "child_process";
+
 
 @Component({
   selector: 'app-favorite-button',

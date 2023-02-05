@@ -9,7 +9,7 @@ import {Auth} from "../../service/auth";
 })
 export class AuthButtonComponent implements OnInit{
 
-  @Input() public isLoggedIn : boolean = false;
+  public isLoggedIn : boolean = false;
 
   public constructor(private authService: Auth) {}
 
@@ -17,7 +17,6 @@ export class AuthButtonComponent implements OnInit{
     this.authService.statut.subscribe((value:boolean) => {
       this.isLoggedIn = value;
     })
-    console.log(this.isLoggedIn)
   }
 
   public toggleLogin() : void {

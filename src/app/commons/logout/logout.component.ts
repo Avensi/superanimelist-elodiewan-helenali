@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {Auth} from "../../service/auth";
+import {Component} from '@angular/core';
+
 
 @Component({
   selector: 'app-logout',
