@@ -17,7 +17,7 @@ export class AuthButtonComponent implements OnInit{
 
   public async ngOnInit(): Promise<void> {
     this.authService.statut.subscribe((value:boolean) => {
-      this.isLoggedIn = this.authService.statut.value;
+      this.isLoggedIn = value;
     })
   }
 
