@@ -16,8 +16,6 @@ export class AnimeStatsComponent implements OnInit{
   public constructor(private authService: Auth){}
 
   public ngOnInit(): void {
-    this.authService.isLoggedIn.subscribe((status: boolean) => {
-      this.loggedIn = status;
-    });
+    this.loggedIn = this.authService.isLoggedIn;
   }
 }

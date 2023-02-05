@@ -18,20 +18,22 @@ export class LogInComponent {
   }
 
   public signInForm: FormGroup = new FormGroup({
-    username: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.compose([
+      Validators.required,
+      Validators.email
+    ])),
     password: new FormControl('', Validators.required),
   })
 
   public onSubmit(): void {
     if (this.signInForm.valid) {
       this.signInService.userData = {
-        username: this.signInForm.value['username'],
+        username: this.signInForm.value['email'],
         password: this.signInForm.value['password'],
         grant_type: "password",
-        token: ""
       }
       this.signInService.logIn();
-      this.router.navigate(["/animeList"])
+      this.router.navigate([""])
     }
   }
 

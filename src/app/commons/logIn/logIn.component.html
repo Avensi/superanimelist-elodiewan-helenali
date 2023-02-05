@@ -4,8 +4,11 @@
     <div class="bg-white px-4 py-5 sm:p-6">
       <div class="grid grid-cols-2 gap-6">
         <div class="col-span-6 sm:col-span-3">
-          <label for="username" class="block text-medium font-medium text-gray-700">Email</label>
-          <input type="text" formControlName="username" id="username" class="mt-1 block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
+          <label for="email" class="block text-medium font-medium text-gray-700">Email</label>
+          <input type="text" formControlName="email" id="email" class="mt-1 block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
+          <div *ngIf="signInForm.controls['email'].errors?.['email']">
+            <p class="text-red-800">Mail format invalid</p>
+          </div>
         </div>
       </div>
     </div>

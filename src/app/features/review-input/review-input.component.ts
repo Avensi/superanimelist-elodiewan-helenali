@@ -28,9 +28,8 @@ export class ReviewInputComponent implements OnInit{
     this.activatedRoute.paramMap.subscribe((params) => {
       this.animeId = Number(params.get('id'));
     })
-    this.authService.isLoggedIn.subscribe((status: boolean) => {
-      this.loggedIn = status;
-    });
+
+    this.loggedIn = this.authService.isLoggedIn;
   }
   public onSubmit(): void {
     if (this.reviewForm.valid) {

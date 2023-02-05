@@ -14,8 +14,8 @@ const routes: Routes = [
   {path: 'animeList', component: AnimeListComponent},
   {path: 'anime/:id', component: AnimeComponent, resolve: {reactions:ReactionsResolver}},
   {path: 'favorite', component: FavoriteListComponent, canActivate: [AuthGuardService]},
-  {path: 'signIn', component : LogInComponent},
-  {path : 'logOut', component : LogoutComponent},
+  {path: 'login', component : LogInComponent},
+  {path : 'logout', component : LogoutComponent},
   {path: '', component: AccueilComponent},
   {path: '**', component: Error404Component}
 ];

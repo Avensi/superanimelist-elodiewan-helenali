@@ -2,6 +2,7 @@ import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} f
 import {FavoriteService} from "../../service/favorite.service";
 import {Anime} from "../../model/anime";
 import {Auth} from "../../service/auth";
+import {AnimeReaction} from "../../model/anime-reaction";
 
 @Component({
   selector: 'app-favorite-button',
@@ -9,23 +10,43 @@ import {Auth} from "../../service/auth";
   styleUrls: ['./favorite-button.component.scss']
 })
 export class FavoriteButtonComponent implements OnInit{
+
+
+  @Input() isLoggedIn : boolean = false;
   @Input() favorite: boolean = false;
   @Input() anime : Anime = {} as Anime;
   @Output() selectedChange = new EventEmitter<boolean>();
   @ViewChild('top', { read: ElementRef }) tableInput!: ElementRef;
 
-  public loggedIn: boolean = false;
+  private currUser: string = this.authService.getCurrentUser();
+
+  public favoriteList : Array<Anime> = JSON.parse(sessionStorage.getItem(this.currUser) || '[]');
+
 
   public constructor(private favoriteService : FavoriteService,  private authService: Auth) {}
 
   public async ngOnInit(): Promise<void> {
-    const favoriteList: Array<Anime> = JSON.parse(sessionStorage.getItem('favoriteList') || '{}')
-    if(this.favoriteService.isAlreadyFavorite(this.anime, favoriteList)){
-      this.favorite = true;
-    }
-    this.authService.isLoggedIn.subscribe((status: boolean) => {
-      this.loggedIn = status;
+
+    this.authService.statut.subscribe((value:boolean) => {
+      this.isLoggedIn = value;
     });
+
+    this.authService.currUser.subscribe((value:string) => {
+      this.currUser = value;
+    });
+
+    this.favoriteService.changeFavorite.subscribe((value:Array<Anime>) => {
+      this.favoriteList = value.concat(this.favoriteList);
+    })
+
+    if(this.favoriteList.length != 0){
+      if(this.favoriteService.isAlreadyFavorite(this.anime, this.favoriteList)){
+        this.favorite = true;
+      }
+    }
+
+
+
   }
 
   public toggleFavorite() : void {
