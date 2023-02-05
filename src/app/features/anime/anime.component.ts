@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {AnimeListService} from "../../service/anime-list.service";
 import {lastValueFrom} from "rxjs";
@@ -7,8 +7,6 @@ import {SpinnerService} from "../../service/spinner.service";
 import {AnimeReaction} from "../../model/anime-reaction";
 import {AnimeReactionService} from "../../service/anime-reaction.service";
 import {AddReviewService} from "../../service/add-review.service";
-import {Anime} from "../../model/anime";
-import {FavoriteService} from "../../service/favorite.service";
 
 @Component({
   selector: 'app-anime',
@@ -20,7 +18,7 @@ export class AnimeComponent implements OnInit{
   public anime:AnimeDetails = {} as AnimeDetails;
   public season: string = "";
   public animeId: number = 0;
-  public animeReactionList:Array<AnimeReaction> = new Array<AnimeReaction>();
+  private animeReactionList:Array<AnimeReaction> = new Array<AnimeReaction>();
   public allReactionsList: Array<AnimeReaction> = new Array<AnimeReaction>();
   private seasonList: string[] = ["Winter", "Spring", "Summer", "Fall"];
 
@@ -39,7 +37,9 @@ export class AnimeComponent implements OnInit{
     this.anime = await lastValueFrom(this.animeListService.getAnimeById(this.animeId));
     this.season = this.seasonList[Math.round(this.anime.startDate.getMonth()/4)];
     this.animeReactionList = this.animeReactionService.animeReactionList;
-    this.allReactionsList = this.userReviewService.getUserReview(this.animeId).concat(this.animeReactionList);
-
+    this.userReviewService.getUserReview(this.animeId);
+    this.userReviewService.changedItem.subscribe((value:Array<AnimeReaction>) => {
+      this.allReactionsList = value.concat(this.animeReactionList);
+    })
   }
 }

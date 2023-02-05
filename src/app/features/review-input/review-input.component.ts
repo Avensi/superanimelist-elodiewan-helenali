@@ -14,7 +14,11 @@ export class ReviewInputComponent implements OnInit{
   private animeId : number = 0;
   public loggedIn: boolean = false;
 
-  public constructor(private reviewService : AddReviewService,  private activatedRoute: ActivatedRoute, private authService: Auth) {}
+  public constructor(
+    private reviewService : AddReviewService,
+    private activatedRoute: ActivatedRoute,
+    private authService: Auth
+  ) {}
 
   public reviewForm : FormGroup = new FormGroup({
     review : new FormControl('', Validators.required)
@@ -37,6 +41,7 @@ export class ReviewInputComponent implements OnInit{
         upVotesCount:0
       }
       this.reviewService.addUserReview();
+      this.reviewForm.get('review')?.setValue('');
     }
   }
 

@@ -6,10 +6,8 @@ import {AnimeReaction} from "../../model/anime-reaction";
   templateUrl: './review-list.component.html',
   styleUrls: ['./review-list.component.scss']
 })
-export class ReviewListComponent {
+export class ReviewListComponent{
   @Input()
   public animeReactionList:Array<AnimeReaction> = new Array<AnimeReaction>();
-  @Input()
-  public userReviewList : Array<AnimeReaction> = new Array<AnimeReaction>();
 
 }
