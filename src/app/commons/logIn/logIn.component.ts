@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Auth} from "../../service/auth";
 import {HttpClient} from "@angular/common/http";
@@ -9,12 +9,19 @@ import {Router} from "@angular/router";
   templateUrl: './logIn.component.html',
   styleUrls: ['./logIn.component.scss']
 })
-export class LogInComponent {
+export class LogInComponent implements OnInit{
+
+  public error : boolean = false;
 
   public constructor(
     private authService: Auth,
-    private http: HttpClient,
     private router: Router) {
+  }
+
+  public async ngOnInit(): Promise<void> {
+    this.authService.error.subscribe((value:boolean) => {
+      this.error = value;
+    })
   }
 
   public signInForm: FormGroup = new FormGroup({
@@ -32,8 +39,11 @@ export class LogInComponent {
         password: this.signInForm.value['password'],
         grant_type: "password",
       }
+
+
       this.authService.logIn();
-      this.router.navigate([""])
+
+
     }
   }
 

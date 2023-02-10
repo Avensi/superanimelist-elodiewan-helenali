@@ -19,8 +19,6 @@ export class AccueilComponent implements OnInit{
       this.loggedIn = value;
     });
 
-    console.log(this.loggedIn)
-
   }
 
 }

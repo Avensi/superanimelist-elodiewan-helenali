@@ -1,5 +1,5 @@
 <div class="container max-w-full mx-auto py-24 px-6 flex flex-col justify-center items-center">
-  <h1 class=" block text-6xl, font-bold">Please sign in first.</h1>
+  <h1 class=" block text-6xl, font-bold">Please log in first.</h1>
   <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
     <div class="bg-white px-4 py-5 sm:p-6">
       <div class="grid grid-cols-2 gap-6">
@@ -22,4 +22,9 @@
       <button type="submit" class="mt-6 ga rounded-md border border-transparent  bg-gradient-to-r from-blue-600 to-indigo-900  py-2 px-6 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Sign in</button>
     </div>
   </form>
+  <div *ngIf="error">
+    <p class="text-red-800">An error occured. Please check your email or password.</p>
+  </div>
 </div>
+
+
