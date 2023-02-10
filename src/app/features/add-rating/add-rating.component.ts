@@ -14,22 +14,18 @@ export class AddRatingComponent implements OnInit{
   public animeScoreRange: number[] = [1,2,3,4,5];
   public currentScore!: number;
 
-  public isLoggedIn : boolean = false;
-
   public constructor(private authService: Auth) {}
   public ngOnInit(): void {
     if(sessionStorage.getItem(String(this.animeId))+'.score' != null) {
-      this.currentScore=Number(sessionStorage.getItem(String(this.animeId)+'.score'));
+      this.currentScore=Number(sessionStorage.getItem(String(this.authService.getCurrentUser() +this.animeId)+'.score'));
     }
-    this.authService.statut.subscribe((value:boolean) => {
-      this.isLoggedIn = value;
-    });
+   ;
 
 
 
   }
 
   public onChange(score: MatSelectChange) : void {
-    sessionStorage.setItem(String(this.animeId)+'.score', score.value);
+    sessionStorage.setItem(String(this.authService.getCurrentUser() + this.animeId)+'.score', score.value);
   }
 }
