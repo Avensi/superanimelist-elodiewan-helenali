@@ -29,7 +29,10 @@ export class ReviewInputComponent implements OnInit{
       this.animeId = Number(params.get('id'));
     })
 
-    this.loggedIn = this.authService.isLoggedIn;
+    this.authService.statut.subscribe((value:boolean) => {
+      this.loggedIn = value;
+    });
+
   }
   public onSubmit(): void {
     if (this.reviewForm.valid) {
