@@ -1,4 +1,4 @@
-<button mat-icon-button (click)="toggleFavorite()">
+<button mat-icon-button (click)="toggleFavorite()"  *ngIf="isLoggedIn">
   <mat-icon *ngIf="favorite" aria-label="Example icon-button with a heart icon"> favorite</mat-icon>
   <mat-icon *ngIf="!favorite" aria-label="Example icon-button with a heart icon">favorite_border</mat-icon>
 </button>

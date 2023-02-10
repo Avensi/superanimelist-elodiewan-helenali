@@ -17,13 +17,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {LogInComponent} from "./commons/logIn/logIn.component";
-import {ReactiveFormsModule} from "@angular/forms";
+import {ReactiveFormsModule, FormsModule} from "@angular/forms";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {ReviewListComponent} from './features/review-list/review-list.component';
 import {AnimeStatsComponent} from './features/anime-stats/anime-stats.component';
 import {BackArrowComponent} from './commons/back-arrow/back-arrow.component';
 import {MatSelectModule} from "@angular/material/select";
-import {FormsModule} from "@angular/forms";
 import {AddRatingComponent} from './features/add-rating/add-rating.component';
 import {LogoutComponent} from './commons/logout/logout.component';
 import {ReviewInputComponent} from "./features/review-input/review-input.component";
@@ -32,6 +31,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import { FavoriteListComponent } from './features/favorite-list/favorite-list.component';
 import { FavoriteAnimeCardComponent } from './features/favorite-anime-card/favorite-anime-card.component';
+import { AuthButtonComponent } from './commons/auth-button/auth-button.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +55,7 @@ import { FavoriteAnimeCardComponent } from './features/favorite-anime-card/favor
     FavoriteButtonComponent,
     FavoriteListComponent,
     FavoriteAnimeCardComponent,
+    AuthButtonComponent,
 
   ],
   imports: [
