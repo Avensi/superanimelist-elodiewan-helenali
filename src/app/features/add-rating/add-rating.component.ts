@@ -19,7 +19,6 @@ export class AddRatingComponent implements OnInit{
     if(sessionStorage.getItem(String(this.animeId))+'.score' != null) {
       this.currentScore=Number(sessionStorage.getItem(String(this.authService.getCurrentUser() +this.animeId)+'.score'));
     }
-   ;
 
 
 
