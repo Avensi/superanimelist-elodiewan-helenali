@@ -2,8 +2,6 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Anime} from "../../model/anime";
 import {Auth} from "../../service/auth";
 
-
-
 @Component({
   selector: 'app-favorite-list',
   templateUrl: './favorite-list.component.html',

@@ -26,8 +26,6 @@ export class FavoriteButtonComponent implements OnInit{
     this.authService.statut.subscribe((value:boolean) => {
       this.isLoggedIn = value;
     });
-
-
     this.favoriteList = JSON.parse(sessionStorage.getItem(this.authService.getCurrentUser()) || '[]')
 
     if(this.favoriteList.length != 0){

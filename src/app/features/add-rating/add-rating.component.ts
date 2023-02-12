@@ -16,12 +16,9 @@ export class AddRatingComponent implements OnInit{
 
   public constructor(private authService: Auth) {}
   public ngOnInit(): void {
-    if(sessionStorage.getItem(String(this.animeId))+'.score' != null) {
-      this.currentScore=Number(sessionStorage.getItem(String(this.authService.getCurrentUser() +this.animeId)+'.score'));
+    if (sessionStorage.getItem(String(this.authService.getCurrentUser() + this.animeId)) + '.score' != null) {
+      this.currentScore = Number(sessionStorage.getItem(String(this.authService.getCurrentUser() + this.animeId) + '.score'));
     }
-
-
-
   }
 
   public onChange(score: MatSelectChange) : void {

@@ -7,6 +7,4 @@ import {Component} from "@angular/core";
 })
 export class HeaderComponent{
   public pageList : string[] = ['animeList', 'favorite'];
-
-
 }
