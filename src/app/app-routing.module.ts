@@ -9,12 +9,13 @@ import {LogInComponent} from "./commons/logIn/logIn.component";
 import {LogoutComponent} from "./commons/logout/logout.component";
 import {FavoriteListComponent} from "./features/favorite-list/favorite-list.component";
 import {AuthGuardService} from "./service/auth-guard.service";
+import {AlreadyAuthService} from "./service/already-auth.service";
 
 const routes: Routes = [
   {path: 'animeList', component: AnimeListComponent},
   {path: 'anime/:id', component: AnimeComponent, resolve: {reactions:ReactionsResolver}},
   {path: 'favorite', component: FavoriteListComponent, canActivate: [AuthGuardService]},
-  {path: 'login', component : LogInComponent},
+  {path: 'login', component : LogInComponent, canActivate: [AlreadyAuthService]},
   {path : 'logout', component : LogoutComponent},
   {path: '', component: AccueilComponent},
   {path: '**', component: Error404Component}
