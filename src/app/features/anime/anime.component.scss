@@ -5,16 +5,20 @@
 
 .poster {
   top: 35%;
-  left: 3%;
+  left: 7%;
   max-height: 350px;
   width: auto;
 }
 
 .left-col {
   margin-top: 11rem;
-  margin-left: 2.2rem;
+  margin-left: 3rem;
 }
-
+p {
+  font-family: Roboto, monospace;
+  font-style: normal;
+  font-weight: bold;
+}
 @media screen and (max-width: 1290px) {
   .poster {
     top:30%;

@@ -3,6 +3,7 @@ import {AnimeListService} from "../../service/anime-list.service";
 import {Anime} from "../../model/anime";
 import {lastValueFrom} from "rxjs";
 import {PageEvent} from "@angular/material/paginator";
+import {SpinnerService} from "../../service/spinner.service";
 
 @Component({
   selector: 'app-anime-list',
@@ -11,14 +12,14 @@ import {PageEvent} from "@angular/material/paginator";
 })
 export class AnimeListComponent implements OnInit {
   public pageEvent!: PageEvent;
-  public length: number = 56;
-  public pageSize: number = 8;
+  public length: number = 100;
+  public pageSize: number = 10;
   public pageIndex: number = 0;
   public animeList: Array<Anime> = new Array<Anime>();
 
   @ViewChild('top', { read: ElementRef }) tableInput!: ElementRef;
 
-  public constructor(private animeListService: AnimeListService) {
+  public constructor(private animeListService: AnimeListService, public spinner: SpinnerService) {
   }
 
   public async ngOnInit(): Promise<void> {
