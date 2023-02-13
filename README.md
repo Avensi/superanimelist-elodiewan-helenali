@@ -16,3 +16,7 @@ Cadre : INF1 - Architecture logicielle
 - Lancer le serveur de développement via la commande "ng serve" 
 - Ouvrir : https://localhost:4200
 
+## Frameworks CSS : 
+- Angular Material 
+- Tailwind 
+
