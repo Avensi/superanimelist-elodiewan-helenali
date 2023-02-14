@@ -11,7 +11,7 @@
       <app-back-arrow returnURL="/animeList"></app-back-arrow>
     </div>
     <img class="poster absolute" src="{{anime.posterImageURL}}" alt="{{anime.title}}">
-    <div class="col-span-1 left-col">
+    <div class="anime-info ol-span-1 left-col">
       <p *ngIf="anime.titleEnJp">Romaji : {{anime.titleEnJp}}</p>
       <p *ngIf="anime.titleEn">English : {{anime.titleEn}}</p>
       <p *ngIf="anime.titleJp">Japanese : {{anime.titleJp}}</p>

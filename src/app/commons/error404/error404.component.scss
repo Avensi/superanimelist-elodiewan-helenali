@@ -1,0 +1,31 @@
+.bg-custom{
+  box-shadow: 6px 6px 1px 0px black;
+}
+
+.dots {
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+
+  &.red {
+    background-color: #FF7B7B;
+  }
+
+  &.yellow {
+    background-color: #FFEFB8;
+  }
+
+  &.green {
+    background-color: #ADFFBA;
+  }
+}
+
+.title-custom {
+  font-family: "Eras Bold ITC", monospace;
+  font-style: normal;
+  font-weight: bold;
+  text-align: center;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-fill-color: #FF7B7B;
+  -webkit-text-stroke-color: black;
+}

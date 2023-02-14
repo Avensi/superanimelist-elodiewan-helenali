@@ -8,6 +8,7 @@
   left: 6%;
   max-height: 350px;
   width: auto;
+  overflow: hidden;
 }
 
 .left-col {
@@ -18,7 +19,11 @@ p {
   font-family: Roboto, monospace;
   font-style: normal;
   font-weight: bold;
+
 }
+ .anime-info{
+   margin-top: 25vh;
+ }
 @media screen and (max-width: 1290px) {
   .poster {
     top:30%;
@@ -41,3 +46,4 @@ p {
     margin-top: 0;
   }
 }
+
