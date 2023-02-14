@@ -1,21 +1,40 @@
 import {Injectable} from '@angular/core';
-import {Review} from "../model/review";
+import {AnimeReaction} from "../model/anime-reaction";
+import {BehaviorSubject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AddReviewService {
-  public review: Review = {} as Review;
+  public review: AnimeReaction = {} as AnimeReaction;
+  public changedItem: BehaviorSubject<Array<AnimeReaction>> = new BehaviorSubject<Array<AnimeReaction>>(new Array<AnimeReaction>());
 
-  public addReview(): void {
-    if (sessionStorage.getItem('reviewList') === null) {
-      const reviewList: Array<Review> = new Array<Review>();
-      reviewList.push(this.review);
-      sessionStorage.setItem('reviewList', JSON.stringify(reviewList));
+  public addUserReview(): void {
+    if (sessionStorage.getItem('userReviewList') === null) {
+      const userReviewList: Array<AnimeReaction> = new Array<AnimeReaction>();
+      userReviewList.push(this.review);
+      sessionStorage.setItem('userReviewList', JSON.stringify(userReviewList));
+      this.changedItem.next(new Array<AnimeReaction>(this.review));
     } else {
-      const reviewList: Array<Review> = JSON.parse(sessionStorage.getItem('reviewList') || 'undefined');
-      reviewList.push(this.review);
-      sessionStorage.setItem('reviewList', JSON.stringify(reviewList));
+      const userReviewList: Array<AnimeReaction> = JSON.parse(sessionStorage.getItem('userReviewList') || '[]');
+      userReviewList.push(this.review);
+      sessionStorage.setItem('userReviewList', JSON.stringify(userReviewList));
+      this.changedItem.next(this.getUserReview(this.review.id))
     }
+  }
+
+  public getUserReview(animeId: number):Array<AnimeReaction> {
+    const userReviewList: Array<AnimeReaction> = JSON.parse(sessionStorage.getItem('userReviewList') || '[]');
+    const finalList: Array<AnimeReaction> = new Array<AnimeReaction>();
+    if(userReviewList.length !=0){
+      for(const rev of userReviewList){
+        if(rev.id == animeId){
+          finalList.push(rev);
+        }
+      }
+    }
+    finalList.reverse();
+    this.changedItem.next(finalList);
+    return finalList;
   }
 }

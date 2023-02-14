@@ -1,0 +1,8 @@
+<div class="h-1 w-1" #top></div>
+<div class="mx-auto w-11/12 mb-5 mt-5">
+  <div class="grid grid-cols-6 gap-5">
+    <div *ngFor="let favorite of favoriteList" >
+      <app-favorite-anime-card [anime]="favorite"></app-favorite-anime-card>
+    </div>
+  </div>
+</div>

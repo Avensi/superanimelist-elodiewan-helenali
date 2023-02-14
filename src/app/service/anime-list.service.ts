@@ -17,7 +17,7 @@ export class AnimeListService {
   }
 
   public getAnime(pageId:number): Observable<Array<Anime>> {
-    return this.http.get<any>(this.configURL + "?fields[anime]=id,canonicalTitle,synopsis,posterImage&page[limit]=8&page[offset]="+pageId*8+"&sort=-userCount").pipe(map((response:any) => {
+    return this.http.get<any>(this.configURL + "?fields[anime]=id,canonicalTitle,synopsis,posterImage&page[limit]=10&page[offset]="+pageId*10+"&sort=-userCount").pipe(map((response:any) => {
         const animeList: Array<Anime> = new Array<Anime>();
         for (const item of response.data) {
           const anime: Anime = {

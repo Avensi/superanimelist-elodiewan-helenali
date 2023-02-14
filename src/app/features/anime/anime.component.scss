@@ -4,36 +4,10 @@
 }
 
 .poster {
-  top: 35%;
-  left: 3%;
   max-height: 350px;
-  width: auto;
 }
 
-.left-col {
-  margin-top: 11rem;
-  margin-left: 2.2rem;
-}
-
-@media screen and (max-width: 1290px) {
-  .poster {
-    top:30%;
-    left: 2%;
-    max-height: 300px;
-  }
-
-  .left-col {
-    margin-top: 10rem;
-    margin-left: 1.5rem;
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  .poster {
-    display: none;
-  }
-
-  .left-col {
-    margin-top: 0;
-  }
+p {
+  font-family: Roboto, monospace;
+  font-style: normal;
 }

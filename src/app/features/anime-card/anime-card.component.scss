@@ -4,8 +4,13 @@
 }
 
 .description {
-  height: 200px;
+  height: 100px;
   overflow: scroll;
   overflow-x: hidden;
 }
 
+a {
+  background-color: #FFAA8F;
+  font-family: Roboto, monospace;
+  box-shadow: 2px 2px 1px 0 black;
+}

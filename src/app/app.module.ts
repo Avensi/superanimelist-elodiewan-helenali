@@ -8,8 +8,6 @@ import {Error404Component} from './commons/error404/error404.component';
 import {AccueilComponent} from './accueil/accueil.component';
 import {AnimeListComponent} from './features/anime-list/anime-list.component';
 import {AnimeComponent} from './features/anime/anime.component';
-import {ListComponent} from './list/list.component';
-import {ReviewComponent} from './review/review.component';
 import {AnimeCardComponent} from './features/anime-card/anime-card.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AnimeReviewComponent} from './features/anime-review/anime-review.component';
@@ -19,16 +17,21 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {LogInComponent} from "./commons/logIn/logIn.component";
-import {ReactiveFormsModule} from "@angular/forms";
+import {ReactiveFormsModule, FormsModule} from "@angular/forms";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {ReviewListComponent} from './features/review-list/review-list.component';
 import {AnimeStatsComponent} from './features/anime-stats/anime-stats.component';
 import {BackArrowComponent} from './commons/back-arrow/back-arrow.component';
 import {MatSelectModule} from "@angular/material/select";
-import {FormsModule} from "@angular/forms";
 import {AddRatingComponent} from './features/add-rating/add-rating.component';
 import {LogoutComponent} from './commons/logout/logout.component';
 import {ReviewInputComponent} from "./features/review-input/review-input.component";
+import { FavoriteButtonComponent } from './features/favorite-button/favorite-button.component';
+import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
+import { FavoriteListComponent } from './features/favorite-list/favorite-list.component';
+import { FavoriteAnimeCardComponent } from './features/favorite-anime-card/favorite-anime-card.component';
+import { AuthButtonComponent } from './commons/auth-button/auth-button.component';
 
 @NgModule({
   declarations: [
@@ -40,8 +43,6 @@ import {ReviewInputComponent} from "./features/review-input/review-input.compone
     AnimeListComponent,
     LogInComponent,
     AnimeComponent,
-    ListComponent,
-    ReviewComponent,
     AnimeCardComponent,
     AnimeReviewComponent,
     SpinnerComponent,
@@ -50,7 +51,11 @@ import {ReviewInputComponent} from "./features/review-input/review-input.compone
     ReviewListComponent,
     AnimeStatsComponent,
     BackArrowComponent,
-    AddRatingComponent
+    AddRatingComponent,
+    FavoriteButtonComponent,
+    FavoriteListComponent,
+    FavoriteAnimeCardComponent,
+    AuthButtonComponent,
 
   ],
   imports: [
@@ -65,6 +70,8 @@ import {ReviewInputComponent} from "./features/review-input/review-input.compone
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatButtonModule,
+    MatIconModule,
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}],
   bootstrap: [AppComponent]

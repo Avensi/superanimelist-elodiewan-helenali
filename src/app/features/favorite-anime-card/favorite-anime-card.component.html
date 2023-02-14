@@ -1,0 +1,8 @@
+<div class="box border-4 border-black rounded-3xl max-w-xs " >
+  <a [routerLink]="['/anime', anime.id]" class="hover:brightness-125">
+    <img src="{{anime.posterImageURL}}" alt="{{anime.title}}"  class="inline-block">
+    <figcaption class="absolute text-lg -mt-16 text-white px-4">
+      <p class="anime-title w-11/12 py-2.5 bottom-0 inset-x-0 text-black text-xs text-center leading-4 font-bold border-2 border-black rounded-3xl">{{anime.title}}</p>
+    </figcaption>
+  </a>
+</div>

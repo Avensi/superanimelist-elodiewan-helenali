@@ -1,0 +1,33 @@
+button {
+  background-color:  #FFC3A9;
+  box-shadow: 4px 4px 1px 0px black;
+  font-family: Roboto, monospace;
+  font-weight: bold;
+  font-style: normal;
+}
+
+p {
+  font-family: Roboto, monospace;
+  font-weight: bold;
+  font-style: normal;
+  word-wrap: break-word;
+  overflow: auto;
+  text-align: center;
+}
+
+h1{
+  font-family: Roboto, monospace;
+  font-weight: bold;
+  font-style: normal;
+  text-align: center;
+}
+
+.container{
+  overflow: hidden;
+
+}
+
+.container-child{
+  border-radius: inherit;
+  box-shadow: 10px 10px 1px 0 black;
+}

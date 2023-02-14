@@ -1,0 +1,4 @@
+<button (click)="toggleLogin()" class="border-4 border-black rounded-3xl mr-10 p-2 hover:bg-cyan-200" >
+  <a  *ngIf="isLoggedIn === false" routerLink="/login" class="inline-block text-sm px-4 py-2 leading-none mt-4 lg:mt-0">Log In</a>
+  <a *ngIf="isLoggedIn === true" routerLink="/logout" class="inline-block text-sm px-4 py-2 leading-none mt-4 lg:mt-0">Log Out</a>
+</button>

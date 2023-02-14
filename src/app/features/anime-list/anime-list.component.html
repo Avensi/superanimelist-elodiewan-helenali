@@ -1,12 +1,18 @@
 <div class="h-1 w-1" #top></div>
-<div class="max-w-screen-xl mx-auto mb-5 mt-5">
-  <div class="grid grid-cols-4 gap-5">
+<div *ngIf="spinner.isLoading | async; else showContent" class="flex justify-center">
+  <div class="h-20 w-20 mt-56">
+    <app-spinner></app-spinner>
+  </div>
+</div>
+<ng-template #showContent>
+<div class="mx-auto w-11/12 border-4 border-black rounded-3xl mb-5 mt-5 px-2 pt-4 bg-custom">
+  <div class="grid grid-cols-5 gap-3">
     <div *ngFor="let anime of animeList"
-         class="flex bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100">
+         class="anime-card flex mx-5 my-3 bg-white border-4 border-black rounded-3xl rounded-lg shadow-md hover:bg-gray-100">
       <app-anime-card [anime]="anime"></app-anime-card>
     </div>
   </div>
-  <mat-paginator
+  <mat-paginator class="mb-5 bg-custom"
     (page)="handlePageEvent($event)"
     [length]="length"
     [pageSize]="pageSize"
@@ -16,3 +22,4 @@
     aria-label="Select page">
   </mat-paginator>
 </div>
+</ng-template>

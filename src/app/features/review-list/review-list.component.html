@@ -1,5 +1,5 @@
-<mat-accordion class="w-2/5 mt-5 block">
-  <ng-container *ngFor="let animeReaction of animeReactionList">
+<mat-accordion class="w-3/5 mt-5 block mx-auto">
+  <ng-container *ngFor="let animeReaction of animeReactionList | slice:0:6 ">
     <app-anime-review [animeReaction]="animeReaction"></app-anime-review>
   </ng-container>
   <app-review-input></app-review-input>

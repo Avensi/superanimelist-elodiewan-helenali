@@ -1,1 +1,24 @@
-<p>accueil works!</p>
+<div class="box mx-auto w-11/12 border-4 border-black rounded-3xl mb-5 mt-5 px-5 bg-custom">
+  <div class="mx-auto w-4/6 h-3/6 mt-28 bg-white border-4 border-black rounded-xl">
+    <div class="inline-flex space-x-2 mt-3 float-right mr-5">
+      <div class="dots red border-2 border-black"></div>
+      <div class="dots yellow border-2 border-black"></div>
+      <div class="dots green border-2 border-black"></div>
+    </div>
+    <div>
+      <p class="title-custom text-4xl p-3 ml-5">Welcome to the best anime uWu</p>
+      <ng-container *ngIf="!loggedIn">
+        <div class="inline-flex justify-center justify-items-center w-full space-x-16">
+          <a routerLink="animeList" class="text-lg rounded-3xl border-4 border-black text-center p-4 px-6 font-medium">Discover</a>
+          <a routerLink="/login" class="text-lg rounded-3xl border-4 border-black text-center p-4 px-6 font-medium">Log
+            in</a>
+        </div>
+        <img class="flex w-auto h-1/5 mr-10 -mt-7 float-right" src="assets/img/cat.png" alt="cat logo">
+      </ng-container>
+      <div *ngIf="loggedIn" class="inline-flex justify-center justify-items-center w-full space-x-16">
+        <p class="title-custom text-4xl p-3">Have fun browsing :D</p>
+      </div>
+    </div>
+  </div>
+
+</div>

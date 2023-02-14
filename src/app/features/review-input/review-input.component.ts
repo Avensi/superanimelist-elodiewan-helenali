@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AddReviewService} from "../../service/add-review.service";
 import {ActivatedRoute} from "@angular/router";
+import {Auth} from "../../service/auth";
 
 @Component({
   selector: 'app-review-input',
@@ -11,8 +12,13 @@ import {ActivatedRoute} from "@angular/router";
 export class ReviewInputComponent implements OnInit{
 
   private animeId : number = 0;
+  public loggedIn: boolean = false;
 
-  public constructor(private reviewService : AddReviewService,  private activatedRoute: ActivatedRoute) {}
+  public constructor(
+    private reviewService : AddReviewService,
+    private activatedRoute: ActivatedRoute,
+    private authService: Auth
+  ) {}
 
   public reviewForm : FormGroup = new FormGroup({
     review : new FormControl('', Validators.required)
@@ -22,15 +28,22 @@ export class ReviewInputComponent implements OnInit{
     this.activatedRoute.paramMap.subscribe((params) => {
       this.animeId = Number(params.get('id'));
     })
+
+    this.authService.statut.subscribe((value:boolean) => {
+      this.loggedIn = value;
+    });
+
   }
   public onSubmit(): void {
     if (this.reviewForm.valid) {
       this.reviewService.review = {
         reaction: this.reviewForm.value['review'],
         createdAt: new Date(),
-        animeId: this.animeId
+        id: this.animeId,
+        upVotesCount:0
       }
-      this.reviewService.addReview();
+      this.reviewService.addUserReview();
+      this.reviewForm.get('review')?.setValue('');
     }
   }
 

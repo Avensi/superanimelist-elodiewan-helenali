@@ -10,13 +10,14 @@ import {Auth} from "../../service/auth";
 export class AnimeStatsComponent implements OnInit{
   @Input()
   public anime: AnimeDetails = {} as AnimeDetails;
+
   public loggedIn: boolean = false;
 
   public constructor(private authService: Auth){}
 
   public ngOnInit(): void {
-    this.authService.isLoggedIn.subscribe((status: boolean) => {
-      this.loggedIn = status;
-    });
+    this.authService.statut.subscribe((value:boolean) => {
+      this.loggedIn = value;
+    })
   }
 }
