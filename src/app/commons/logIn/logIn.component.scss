@@ -10,6 +10,9 @@ p {
   font-family: Roboto, monospace;
   font-weight: bold;
   font-style: normal;
+  word-wrap: break-word;
+  overflow: auto;
+  text-align: center;
 }
 
 h1{
