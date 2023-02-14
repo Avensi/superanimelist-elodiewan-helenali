@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Auth} from "../../service/auth";
 
@@ -7,17 +7,12 @@ import {Auth} from "../../service/auth";
   templateUrl: './logIn.component.html',
   styleUrls: ['./logIn.component.scss']
 })
-export class LogInComponent implements OnInit{
+export class LogInComponent{
 
   public error : boolean = false;
 
   public constructor(private authService: Auth) {}
 
-  public async ngOnInit(): Promise<void> {
-    this.authService.error.subscribe((value:boolean) => {
-      this.error = value;
-    })
-  }
 
   public signInForm: FormGroup = new FormGroup({
     email: new FormControl('', Validators.compose([
@@ -34,8 +29,14 @@ export class LogInComponent implements OnInit{
         password: this.signInForm.value['password'],
         grant_type: "password",
       }
+
       this.authService.logIn();
-    }
-  }
+      this.authService.error.subscribe((value:boolean) => {
+        this.error = value;
+        console.log(this.error)
+
+      })
+
+    }}
 
 }
