@@ -5,19 +5,22 @@
 </div>
 
 <ng-template #showContent>
-  <div class="mx-auto w-11/12 grid grid-cols-5 grid-flow-row gap-4 mb-5 bg-white mt-2 border-4 border-black rounded-2xl pb-4 ">
+  <div
+    class="mx-auto w-11/12 grid grid-cols-5 grid-flow-row gap-4 mb-5 bg-white mt-2 border-4 border-black rounded-2xl pb-4 ">
     <img class="brightness-50 col-span-5 cover rounded-t-xl" src="{{anime.coverImage}}" alt="{{anime.title}}">
     <div class="absolute ml-5 mt-5 ">
       <app-back-arrow returnURL="/animeList"></app-back-arrow>
     </div>
-    <img class="poster absolute" src="{{anime.posterImageURL}}" alt="{{anime.title}}">
-    <div class="anime-info ol-span-1 left-col">
-      <p *ngIf="anime.titleEnJp">Romaji : {{anime.titleEnJp}}</p>
-      <p *ngIf="anime.titleEn">English : {{anime.titleEn}}</p>
-      <p *ngIf="anime.titleJp">Japanese : {{anime.titleJp}}</p>
-      <p class="mt-3">Start Date : {{anime.startDate | date:'dd/MM/yyyy'}}</p>
-      <p>End Date : {{anime.endDate | date:'dd/MM/yyyy'}}</p>
-      <p>Season : {{season}} {{anime.startDate.getFullYear()}}</p>
+    <div class="anime-info ol-span-1 left-col ml-5 -translate-y-48">
+      <img class="poster w-auto mb-3" src="{{anime.posterImageURL}}" alt="{{anime.title}}">
+      <div class="ml-7">
+        <p *ngIf="anime.titleEnJp">Romaji : {{anime.titleEnJp}}</p>
+        <p *ngIf="anime.titleEn">English : {{anime.titleEn}}</p>
+        <p *ngIf="anime.titleJp">Japanese : {{anime.titleJp}}</p>
+        <p class="mt-3">Start Date : {{anime.startDate | date:'dd/MM/yyyy'}}</p>
+        <p>End Date : {{anime.endDate | date:'dd/MM/yyyy'}}</p>
+        <p>Season : {{season}} {{anime.startDate.getFullYear()}}</p>
+      </div>
     </div>
     <div class="col-span-4 w-auto ml-1 mr-5 ">
       <p class="font-bold tracking-tight text-gray-900 text-4xl mb-2">{{anime.title}}</p>

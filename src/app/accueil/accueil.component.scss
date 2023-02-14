@@ -18,6 +18,11 @@
     background-color: #FFAA8F;
     box-shadow: 2px 2px 1px 0 black;
   }
+
+  a:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(165 243 252 / var(--tw-bg-opacity));
+  }
 .title-custom {
   font-family: "Eras Bold ITC", monospace;
   font-style: normal;

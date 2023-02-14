@@ -4,46 +4,10 @@
 }
 
 .poster {
-  top: 40%;
-  left: 6%;
   max-height: 350px;
-  width: auto;
-  overflow: hidden;
 }
 
-.left-col {
-  margin-top: 9rem;
-  margin-left: 3rem;
-}
 p {
   font-family: Roboto, monospace;
   font-style: normal;
-  font-weight: bold;
-
 }
- .anime-info{
-   margin-top: 25vh;
- }
-@media screen and (max-width: 1290px) {
-  .poster {
-    top:30%;
-    left: 2%;
-    max-height: 300px;
-  }
-
-  .left-col {
-    margin-top: 10rem;
-    margin-left: 1.5rem;
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  .poster {
-    display: none;
-  }
-
-  .left-col {
-    margin-top: 0;
-  }
-}
-
