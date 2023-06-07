@@ -6,14 +6,14 @@
       <div class="dots green border-2 border-black"></div>
     </div>
     <div>
-      <p class="title-custom text-4xl p-3 ml-5">Welcome to the best anime uWu</p>
+      <p class="title-custom text-4xl p-3 ml-5">Welcome to the best anime list uWu</p>
       <ng-container *ngIf="!loggedIn">
         <div class="inline-flex justify-center justify-items-center w-full space-x-16">
           <a routerLink="animeList" class="text-lg rounded-3xl border-4 border-black text-center p-4 px-6 font-medium">Discover</a>
           <a routerLink="/login" class="text-lg rounded-3xl border-4 border-black text-center p-4 px-6 font-medium">Log
             in</a>
         </div>
-        <img class="flex w-auto h-1/5 mr-10 -mt-7 float-right" src="assets/img/cat.png" alt="cat logo">
+        <img class="flex w-auto h-1/5 mr-10 -mt-8 float-right" src="assets/img/cat.png" alt="cat logo">
       </ng-container>
       <div *ngIf="loggedIn" class="inline-flex justify-center justify-items-center w-full space-x-16">
         <p class="title-custom text-4xl p-3">Have fun browsing :D</p>
