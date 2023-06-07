@@ -11,7 +11,7 @@ Cadre : INF1 - Architecture logicielle
 ## Pour se connecter :
 - Se créer un compte sur Kitsu : https://kitsu.io
 - Se connecter avec l'email & le mot de passe Kitsu dans la page [login] 
-- Compte test email : helenali2000@hotmail.com, MDP : 3qKMUFTMbL92D3
+
 
 ## Serveur de développement : 
 - Lancer le serveur de développement via la commande "ng serve" 
